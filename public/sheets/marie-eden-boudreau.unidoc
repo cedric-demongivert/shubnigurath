@@ -1,0 +1,135 @@
+\name { 
+  \first { Marie Eden } 
+  \last { Boudreau }
+}
+
+\alias { Rosette }
+
+\job { Religieuse }
+
+\matricule { 10.07.09 }
+
+\gender { female }
+
+\age { 36 }
+
+\birthdate { 1887-02-12 }
+
+\hiringdate { 1923-06-15 }
+
+\birthplace {
+  \country { Canada }
+  \state { Québec }
+  \city { Montréal }
+  \district { Notre Dame de Grâce }
+  \street { Avenue Marlowe }
+}
+
+\home {
+  \country { Canada }
+  \state { Québec }
+  \city { Montréal }
+  \district { Notre Dame de Grâce }
+  \street { Rue Bedford }
+}
+
+\characteristics {
+  \appearance {
+    \base { 70 }
+  }
+
+  \constitution {
+    \base { 40 }
+  }
+
+  \dexterity {
+    \base { 40 }
+  }
+  
+  \education {
+    \base { 70 }
+    \modifier { +6 Vieillissement (20+) }
+  }
+
+  \intelligence {
+    \base { 50 }
+  }
+
+  \power {
+    \base { 70 }
+  }
+
+  \size {
+    \base { 40 }
+  }
+
+  \strength {
+    \base { 40 }
+  }
+
+  \luck {
+    \base { 40 }
+  }
+}
+
+\skills {
+  \skill {
+    \family { Italien }
+    \base { 1 }
+    \modifier { 39 Expérience (Religieuse) }
+  }
+
+  \skill {
+    \family { Anglais }
+    \base { 1 }
+    \modifier { 49 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Latin }
+    \base { 1 }
+    \modifier { 59 Expérience (Religieuse) }
+  }
+
+  \skill {
+    \family { Russe }
+    \base { 1 }
+    \modifier { 39 Expérience (Religieuse) }
+  }
+
+  \skill {
+    \family { Charme }
+    \modifier { 45 Expérience (Religieuse) }
+    \modifier { 15 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Bibliothèque }
+    \modifier { 35 Expérience (Religieuse) }
+  }
+
+  \skill {
+    \family { Comptabilité }
+    \modifier { 20 Expérience (Religieuse) }
+  }
+
+  \skill {
+    \family { Histoire }
+    \modifier { 45 Expérience (Religieuse) }
+  }
+
+  \skill {
+    \family { Crédit }
+    \modifier { 20 Expérience (Religieuse) }
+  }
+
+  \skill {
+    \family { Trouver objet caché }
+    \modifier { 45 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Psychologie }
+    \modifier { 25 Expérience (Personnelle) }
+  }
+}

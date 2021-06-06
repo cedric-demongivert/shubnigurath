@@ -1,4 +1,23 @@
-body, html {
+body,
+html {
+  display: block;
+  position: relative;
+
+  min-width: 350px;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0px;
+  margin: 0px;
+  border: none;
+
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+#__next {
   display: block;
   position: relative;
 
@@ -12,6 +31,7 @@ body, html {
   box-sizing: border-box;
 
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 ul {
@@ -46,7 +66,7 @@ ul {
 }
 
 * {
-  font-family: 'Vesper Libre', serif;
+  font-family: "Vesper Libre", serif;
   font-size: $xs-font-size;
   color: $text-color;
 }
@@ -69,19 +89,31 @@ ul {
   }
 }
 
-a, a:hover {
+a,
+a:hover {
   text-decoration: none;
   color: $link-color;
 }
 
-a, h1, h2, h3, h4, h5, h6 {
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   &:target {
     color: #ff7e00;
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Alegreya SC', serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Alegreya SC", serif;
   padding: 0px;
   margin: 0px;
   border: none;
@@ -122,19 +154,43 @@ p {
 }
 
 @include media-breakpoint-up(xs) {
-  h1, h2, h3, h4, h5, h6, p, table, ul {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  table,
+  ul {
     margin-bottom: $sm-content-spacing;
   }
 }
 
 @include media-breakpoint-up(sm) {
-  h1, h2, h3, h4, h5, h6, p, table, ul {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  table,
+  ul {
     margin-bottom: $md-content-spacing;
   }
 }
 
 @include media-breakpoint-up(md) {
-  h1, h2, h3, h4, h5, h6, p, table, ul {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  table,
+  ul {
     margin-bottom: $lg-content-spacing;
   }
 }

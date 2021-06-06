@@ -1,0 +1,67 @@
+.label {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  order: 0;
+  flex: 1 0 auto;
+
+  .label-value {
+    width: auto;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    order: 0;
+    flex: 0 0 auto;
+
+    color: $label-color;
+
+    font-size: 0.75em;
+    font-family: "Vesper Libre", serif;
+  }
+
+  .label-filler {
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+    margin-left: 8px;
+
+    padding: 0;
+
+    border: none;
+    border-top: 2px dotted $label-color;
+
+    order: 1;
+    flex: 1 1 auto;
+  }
+
+  .label-ending {
+    width: 4px;
+    height: 4px;
+
+    margin: 0;
+    margin-left: 2px;
+
+    padding: 0;
+    border: none;
+
+    background-color: $label-color;
+    border-radius: 100%;
+
+    order: 2;
+    flex: 0 0 auto;
+  }
+}

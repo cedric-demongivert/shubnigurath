@@ -1,2 +1,2 @@
-export { RepositoryResolver } from './RepositoryResolver'
+export { readInvestigator } from './readInvestigator'
 export { Reader } from './Reader'

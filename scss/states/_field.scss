@@ -1,0 +1,6 @@
+.field:focus,
+.field.is-focus,
+.field:hover {
+  outline: none;
+  color: $focus-color;
+}

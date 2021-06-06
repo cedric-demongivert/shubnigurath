@@ -1,0 +1,90 @@
+.skill {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: flex-start;
+
+  & > * {
+    padding-top: 0.2em;
+
+    font-size: 1em;
+    line-height: 1.1em;
+    font-family: "Vesper Libre", serif;
+
+    cursor: default;
+  }
+
+  .padding {
+    opacity: 0.2;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .skill-name {
+    order: 0;
+    flex: 0 0 auto;
+  }
+
+  .skill-filler {
+    order: 1;
+    flex: 1 1 auto;
+
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0.2em;
+
+    height: auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    align-self: center;
+  }
+
+  .skill-values {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: flex-start;
+
+    height: auto;
+    width: 12ch;
+
+    order: 2;
+    flex: 0 0 auto;
+
+    .skill-value {
+      height: auto;
+      width: 3ch;
+
+      padding: 0px;
+      margin: 0px;
+      border: none;
+
+      text-align: right;
+
+      flex: 0 0 auto;
+
+      .percent {
+        font-size: 0.7em;
+        font-family: "Vesper Libre", serif;
+      }
+    }
+
+    .skill-separator {
+      height: auto;
+      width: 2ch;
+
+      padding: 0px;
+      margin: 0px;
+      border: none;
+
+      flex: 1 1 auto;
+
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+}

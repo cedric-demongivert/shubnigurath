@@ -1,0 +1,28 @@
+.label.is-focus,
+.label:focus,
+.is-focus .label,
+.field:focus .label,
+.field:hover .label {
+  .label-value {
+    color: $focus-color;
+  }
+
+  .label-filler {
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+    margin-left: 8px;
+
+    padding: 0;
+
+    border-color: $focus-color;
+
+    order: 1;
+    flex: 1 1 auto;
+  }
+
+  .label-ending {
+    background-color: $focus-color;
+  }
+}

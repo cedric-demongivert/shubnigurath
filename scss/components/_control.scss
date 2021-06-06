@@ -1,0 +1,68 @@
+.control {
+  width: 100%;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  &.control-text {
+    font-size: 1em;
+    font-family: "Vesper Libre", serif;
+  }
+
+  &.control-boolean {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+
+    padding-top: 0.25em;
+    font-size: 1em;
+    font-family: "Vesper Libre", serif;
+    line-height: 0.7em;
+    vertical-align: middle;
+  }
+
+  &.control-value {
+    font-family: "Vesper Libre", serif;
+
+    .control-value-input {
+      position: relative;
+
+      width: auto;
+      height: auto;
+
+      .hidden {
+        display: inline-block;
+        visibility: hidden;
+
+        border: none;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      input {
+        position: absolute;
+
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+
+        border: none;
+        padding: 0px;
+        margin: 0px;
+
+        text-align: right;
+
+        line-height: 1em;
+      }
+
+      input:focus {
+        outline: none;
+      }
+    }
+  }
+}

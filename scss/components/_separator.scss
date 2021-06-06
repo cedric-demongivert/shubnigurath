@@ -1,0 +1,72 @@
+$separator-size: 18px;
+
+.separator {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+
+  height: $separator-size;
+  width: auto;
+
+  margin: 0px;
+  padding: 0px;
+  border: none;
+
+  .separator-left {
+    height: $separator-size;
+    width: $separator-size;
+
+    margin: 0px;
+    padding: 0px;
+    border: none;
+
+    order: 0;
+    flex: none;
+
+    background-image: url("../../public/images/separator-left.svg");
+    background-position: 0 0;
+    background-size: cover;
+  }
+
+  .separator-filling {
+    height: $separator-size;
+    width: auto;
+
+    margin: 0px;
+    padding: 0px;
+    border: none;
+
+    order: 1;
+    flex: 1 1 auto;
+
+    background-image: url("../../public/images/separator-filling.svg");
+    background-position: 0 0;
+    background-size: auto 100%;
+  }
+
+  .separator-right {
+    height: $separator-size;
+    width: $separator-size;
+
+    margin: 0px;
+    padding: 0px;
+    border: none;
+
+    order: 2;
+    flex: none;
+
+    background-image: url("../../public/images/separator-right.svg");
+    background-position: 0 0;
+    background-size: cover;
+  }
+}
+
+* + .separator {
+  margin-top: 20px;
+}
+
+.separator + * {
+  margin-top: 20px;
+}

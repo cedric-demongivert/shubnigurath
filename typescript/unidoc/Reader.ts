@@ -3,15 +3,18 @@ import { UnidocProducer } from '@cedric-demongivert/unidoc'
 import { UnidocEvent } from '@cedric-demongivert/unidoc'
 import { fullyParse } from '@cedric-demongivert/unidoc'
 
-import { Commit } from '../commit/Commit'
-
-import { RepositoryResolver } from './RepositoryResolver'
+import { UnidocFragmentResolver } from '@cedric-demongivert/unidoc'
 
 export class Reader {
   /**
   *
   */
   private readonly _stream: UnidocStream
+
+  /**
+   * 
+   */
+  private readonly _resolver: UnidocFragmentResolver
 
   /**
   *
@@ -21,8 +24,9 @@ export class Reader {
   /**
   *
   */
-  public constructor(commit: Commit) {
-    this._stream = new UnidocStream(new RepositoryResolver(commit))
+  public constructor() {
+    this._resolver = new UnidocFragmentResolver()
+    this._stream = new UnidocStream(this._resolver)
     this.output = fullyParse(this._stream)
   }
 
@@ -30,6 +34,7 @@ export class Reader {
   *
   */
   public read(file: string) {
-    this._stream.import(file)
+    this._resolver.set('main', file)
+    this._stream.import('main')
   }
 }

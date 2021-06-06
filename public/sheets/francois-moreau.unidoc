@@ -1,0 +1,119 @@
+\name { 
+  \first { François } 
+  \last { Moreau }
+}
+
+\alias { Bourbon }
+
+\job { Contrebandière }
+
+\matricule { 09.10.05 }
+
+\gender { female }
+
+\age { 34 }
+
+\birthdate { 1888-09-21 }
+
+\hiringdate { 1923-06-18 }
+
+\birthplace {
+  \country { Canada }
+  \state { Québec }
+  \city { Sainte-Anne-des-Plaines }
+}
+
+\home {
+  \country { Canada }
+  \state { Québec }
+  \city { Montréal }
+  \district { Westmount }
+  \street { Avenue Roslyn }
+}
+
+\characteristics {
+  \appearance {
+    \base { 50 }
+  }
+
+  \constitution {
+    \base { 50 }
+  }
+
+  \dexterity {
+    \base { 75 }
+  }
+  
+  \education {
+    \base { 27 }
+
+    \modifier { +8 Vieillissement (20+) }
+  }
+
+  \intelligence {
+    \base { 40 }
+  }
+
+  \power {
+    \base { 60 }
+  }
+
+  \size {
+    \base { 40 }
+  }
+
+  \strength {
+    \base { 60 }
+  }
+
+  \luck {
+    \base { 60 }
+  }
+}
+
+\skills {
+  \skill {
+    \family { Conduite }
+    \modifier { 40 Expérience (Contrebandière) }
+  }
+
+  \skill {
+    \family { Corps à corps }
+    \modifier { 45 Expérience (Contrebandière) }
+  }
+
+  \skill {
+    \family { Discrétion }
+    \modifier { 40 Expérience (Contrebandière) }
+  }
+
+  \skill {
+    \family { Écouter }
+    \modifier { 40 Expérience (Contrebandière) }
+  }
+
+  \skill {
+    \family { Électricité }
+    \modifier { 20 Expérience (Contrebandière) }
+  }
+
+  \skill {
+    \family { Méchanique }
+    \modifier { 60 Expérience (Contrebandière) }
+  }
+
+  \skill {
+    \family { Persuasion }
+    \modifier { 40 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Crochetage }
+    \modifier { 49 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Orientation }
+    \modifier { 30 Expérience (Personnelle) }
+  }
+}

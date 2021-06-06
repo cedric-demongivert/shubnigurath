@@ -1,0 +1,78 @@
+.layout.layout-triplet {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: flex-start;
+
+  width: auto;
+  height: auto;
+
+  padding: 0px;
+  margin: 0px;
+  border: none;
+
+  .layout-triplet-body,
+  .layout-triplet-aside {
+    height: auto;
+    width: auto;
+
+    padding: 0px;
+    margin: 0px;
+    border: none;
+  }
+
+  .layout-triplet-aside {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+
+    .layout-triplet-superscript {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-end;
+      align-items: center;
+      align-content: center;
+
+      height: auto;
+      width: auto;
+
+      padding: 0px;
+      margin: 0px;
+      border: none;
+
+      order: 0;
+      flex: 1 0 auto;
+
+      font-size: 0.7em;
+      line-height: 0.9em;
+
+      min-height: 0.9em;
+    }
+
+    .layout-triplet-subscript {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      align-content: center;
+
+      height: auto;
+      width: auto;
+
+      padding: 0px;
+      margin: 0px;
+      border: none;
+
+      order: 1;
+      flex: 1 0 auto;
+
+      font-size: 0.7em;
+      line-height: 0.9em;
+
+      min-height: 0.9em;
+    }
+  }
+}

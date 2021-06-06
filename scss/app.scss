@@ -4,35 +4,30 @@
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/regular";
 @import "../../node_modules/@fortawesome/fontawesome-free/scss/solid";
 
-@import url('https://fonts.googleapis.com/css?family=Vesper+Libre&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Alegreya+SC&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Vesper+Libre&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Alegreya+SC&display=swap");
 
 @import "./vars";
 @import "./base";
 
-@import "./layout/layout";
-@import "./layout/layout-centered";
-@import "./layout/layout-loading";
-@import "./layout/layout-page";
-@import "./layout/layout-page-repository";
-@import "./layout/layout-page-book";
+@import "./layout/triplet";
+@import "./layout/filler";
+@import "./layout/centered";
 
-@import "./components/dot-loader";
-@import "./components/framework";
+@import "./components/separator";
+@import "./components/field";
+@import "./components/label";
+@import "./components/control";
 @import "./components/application";
-@import "./components/matter";
-@import "./components/table";
-@import "./components/summary";
-@import "./components/data";
-@import "./components/spell";
-@import "./components/map";
+@import "./components/page";
+@import "./components/skill";
+@import "./components/toggle";
+@import "./components/card";
 
-@import "./theme/subject";
-@import "./theme/badge";
-@import "./theme/headings";
-@import "./theme/table-1d";
-@import "./theme/table-2d";
-@import "./theme/instinct-modifier";
-@import "./theme/data";
-@import "./theme/alchemy";
-@import "./theme/section";
+@import "./theme/checkbox";
+
+@import "./states/field";
+@import "./states/label";
+@import "./states/value";
+@import "./states/control";
+@import "./states/is-clickable";

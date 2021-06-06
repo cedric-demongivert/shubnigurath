@@ -4,8 +4,9 @@ $sm-font-size: 14px;
 $xs-font-size: 12px;
 
 $link-color: #3498db;
-$text-color: rgba(0.05, 0.05, 0.05, 1.0);
+$text-color: rgba(0.05, 0.05, 0.05, 1);
 $page-color: #ffffff;
+$focus-color: #ef6c00;
 
 $h1-font-size: 1em + 6 * 0.35em;
 $h2-font-size: 1em + 5 * 0.35em;
@@ -18,3 +19,5 @@ $lg-content-spacing: $lg-font-size;
 $md-content-spacing: $md-font-size;
 $sm-content-spacing: $sm-font-size;
 $xs-content-spacing: $xs-font-size;
+
+$label-color: #646464ff;
