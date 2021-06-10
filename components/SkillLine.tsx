@@ -1,8 +1,14 @@
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
+
+import classnames from 'classnames'
+
 import { Skill } from '../typescript/Skill'
 import { Value } from '../typescript/Value'
 
 import { Padding } from './Padding'
+import { Toggler } from '../typescript/Toggler'
+
+const IS_SELECTED: Toggler = Toggler.create('is-selected')
 
 export function SkillLine(properties: SkillLine.Properties) : ReactElement {
   const name: string = properties.skill.toString()
@@ -16,7 +22,7 @@ export function SkillLine(properties: SkillLine.Properties) : ReactElement {
   const dfifth = (fifth > 0 ? fifth : base > 0 ? 1 : 0).toString()
 
   return (
-    <div key={name} className='skill skill-default'>
+    <div key={name} className={classnames('skill skill-default', properties.className, IS_SELECTED.toggle(properties.selected))} onClick={properties.onClick}>
       <div className='skill-name'>
         {name.substr(0, 1).toLocaleUpperCase()}{name.substr(1)}
       </div>
@@ -50,6 +56,16 @@ export namespace SkillLine {
      * 
      */
     className?: string | undefined,
+
+    /**
+     * 
+     */
+    onClick?: (event: React.MouseEvent<HTMLDivElement>) => void | undefined,
+
+    /**
+     * 
+     */
+    selected?: boolean | undefined,
 
     /**
      * 

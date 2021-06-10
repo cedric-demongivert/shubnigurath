@@ -9,6 +9,7 @@ import { CharacteristicSetRenderer } from './CharacteristicSetRenderer'
 import { StatusDisplay } from './StatusDisplay'
 import { AllSkillsDisplay } from './AllSkillsDisplay'
 import { UnidocInvestigatorReducer } from '../typescript/unidoc/reducer'
+import { Skill } from '../typescript/Skill'
 
 
 /**
@@ -23,6 +24,8 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSave = this.handleSave.bind(this)
+    this.handleSkillSelection = this.handleSkillSelection.bind(this)
+    this.handleLevelup = this.handleLevelup.bind(this)
   }
 
   /**
@@ -30,6 +33,20 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
    */
   public handleChange(next: Investigator, previous: Investigator): void {
     this.props.onChange(next, previous)
+  }
+
+  /**
+   * 
+   */
+  public handleLevelup(): void {
+    this.props.onChange(this.props.value.levelup(), this.props.value)
+  }
+
+  /**
+   * 
+   */
+  public handleSkillSelection(skill: Skill): void {
+    this.props.onChange(this.props.value.toggleForUpdate(skill), this.props.value)
   }
 
   /**
@@ -109,7 +126,10 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
 
               <div className='col-12 order-md-3 order-lg-1'>
                 <div className='row'>
-                  <AllSkillsDisplay value={this.props.value} />
+                  <AllSkillsDisplay 
+                    value={this.props.value}
+                    onSelect={this.handleSkillSelection}
+                  />
                 </div>
               </div>
             </div>
@@ -117,6 +137,10 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
             <div className='row'>
               <div className='col-12'>
                 <br />
+                
+                <button className='btn btn-link btn-block' onClick={this.handleLevelup}>
+                  Gagner de l'expérience
+                </button>
               
                 <button className='btn btn-primary btn-block' onClick={this.handleSave}>
                   Sauvegarder la fiche

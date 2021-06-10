@@ -31,6 +31,11 @@ export class Investigator {
   /**
    * 
    */
+  public readonly updates: SkillSet
+
+  /**
+   * 
+   */
   public readonly mutables: Mutables
 
   /**
@@ -168,6 +173,7 @@ export class Investigator {
     this.characteristics = properties.characteristics || CharacteristicSet.empty()
     this.skills = properties.skills || SkillSet.empty()
     this.mutables = properties.mutables || Mutables.fromInvestigator(this)
+    this.updates = properties.updates || SkillSet.empty()
   }
 
   /**
@@ -228,6 +234,77 @@ export class Investigator {
   /**
    * 
    */
+  public toggleForUpdate(skill: Skill): Investigator {
+    if (this.updates.has(skill)) {
+      return new Investigator({
+        ...this,
+        updates: this.updates.delete(skill)
+      })
+    } else {
+      return new Investigator({
+        ...this,
+        updates: this.updates.set(skill, Value.zero())
+      })
+    }
+  }
+
+  /**
+   * 
+   */
+  public levelup(): Investigator {
+    if (this.updates.entries.size > 0) {
+      const oldSkills: List<Pair<Skill, Value>> = this.skills.entries
+      const skillsToUpdate: List<Pair<Skill, Value>> = this.updates.entries
+      const nextSkills: List<Pair<Skill, Value>> = List().asMutable()
+      const defaultSkills: SkillSet = this.computeDefaultSkills()
+
+      let skillsIndex: number = 0
+
+      for (let toUpdateIndex = 0; toUpdateIndex < skillsToUpdate.size; ++toUpdateIndex) {
+        const currentSkillToUpdate: Skill = skillsToUpdate.get(toUpdateIndex).left
+
+        while (skillsIndex < oldSkills.size && Skill.compare(oldSkills.get(skillsIndex).left, currentSkillToUpdate) < 0) {
+          nextSkills.push(oldSkills.get(skillsIndex))
+          skillsIndex += 1
+        }
+
+        if (skillsIndex < oldSkills.size && Skill.compare(oldSkills.get(skillsIndex).left, currentSkillToUpdate) === 0) {
+          nextSkills.push(
+            Pair.create(
+              currentSkillToUpdate,
+              oldSkills.get(skillsIndex).right.levelup()
+            )
+          )
+
+          skillsIndex += 1
+        } else {
+          const base: Value = defaultSkills.has(currentSkillToUpdate) ? defaultSkills.get(currentSkillToUpdate) : Value.create(1)
+          const levelup: Value = base.levelup()
+
+          if (base !== levelup) {
+            nextSkills.push(Pair.create(currentSkillToUpdate, levelup))
+          }
+        }
+      }
+
+      while (skillsIndex < oldSkills.size) {
+        nextSkills.push(oldSkills.get(skillsIndex))
+        skillsIndex += 1
+      }
+
+      return Investigator.create({
+        ...this,
+        skills: SkillSet.create(nextSkills),
+        updates: SkillSet.empty()
+      })
+    } else {
+      return this
+    }
+  }
+
+  /**
+   * 
+   */
   public equals(other: any): boolean {
     if (other == null) return false
     if (other === this) return true
@@ -267,6 +344,11 @@ export namespace Investigator {
     /**
      *
      */
-    mutables?: Mutables | undefined
+    mutables?: Mutables | undefined,
+
+    /**
+     * 
+     */
+    updates?: SkillSet | undefined
   }
 }

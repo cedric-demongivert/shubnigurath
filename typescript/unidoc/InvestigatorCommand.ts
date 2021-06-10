@@ -44,6 +44,7 @@ export namespace InvestigatorCommand {
     CommandListElement.anywhere.requiredCommand('characteristics', CharacteristicSetCommand.validate),
     CommandListElement.anywhere.requiredCommand('skills', SkillSetCommand.validate),
     CommandListElement.anywhere.optionalCommand('state', StateCommand.validate),
+    CommandListElement.anywhere.optionalCommand('updates', SkillSetCommand.validate)
   )
 
   /**
@@ -70,6 +71,7 @@ export namespace InvestigatorCommand {
     let characteristics: CharacteristicSet = CharacteristicSet.empty()
     let skills: SkillSet = SkillSet.empty()
     let mutables: Mutables | undefined = undefined
+    let updates: SkillSet = SkillSet.empty()
 
     yield* UnidocReducer.skipStart()
     yield* UnidocReducer.skipWhitespaces()
@@ -104,6 +106,8 @@ export namespace InvestigatorCommand {
           characteristics = yield* UnidocReducer.reduceTag.content(CharacteristicSetCommand.reduce())
         } else if (current.isStartOfTag('skills')) {
           skills = yield* UnidocReducer.reduceTag.content(SkillSetCommand.reduce())
+        } else if (current.isStartOfTag('updates')) {
+          updates = yield* UnidocReducer.reduceTag.content(SkillSetCommand.reduce())
         } else {
           yield* UnidocReducer.skipTag()
         }
@@ -123,7 +127,8 @@ export namespace InvestigatorCommand {
           }),
           characteristics,
           skills,
-          mutables
+          mutables,
+          updates
         })
       } else {
         current = yield UnidocReductionRequest.NEXT

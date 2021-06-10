@@ -17,13 +17,13 @@ export namespace StateCommand {
    * 
    */
   const COMMAND: CommandList = CommandList.capture(
-    CommandListElement.anywhere.requiredCommand('health', UnidocKissValidator.requireToken),
-    CommandListElement.anywhere.requiredCommand('mentalHealth', UnidocKissValidator.requireToken),
-    CommandListElement.anywhere.requiredCommand('magic', UnidocKissValidator.requireToken),
-    CommandListElement.anywhere.requiredCommand('luck', UnidocKissValidator.requireToken),
-    CommandListElement.anywhere.requiredCommand('temporaryInsane', UnidocKissValidator.validateManyWhitespace),
-    CommandListElement.anywhere.requiredCommand('indefinitelyInsane', UnidocKissValidator.validateManyWhitespace),
-    CommandListElement.anywhere.requiredCommand('majorWound', UnidocKissValidator.validateManyWhitespace)
+    CommandListElement.anywhere.optionalCommand('health', UnidocKissValidator.requireToken),
+    CommandListElement.anywhere.optionalCommand('mentalHealth', UnidocKissValidator.requireToken),
+    CommandListElement.anywhere.optionalCommand('magic', UnidocKissValidator.requireToken),
+    CommandListElement.anywhere.optionalCommand('luck', UnidocKissValidator.requireToken),
+    CommandListElement.anywhere.optionalCommand('temporaryInsane', UnidocKissValidator.validateManyWhitespace),
+    CommandListElement.anywhere.optionalCommand('indefinitelyInsane', UnidocKissValidator.validateManyWhitespace),
+    CommandListElement.anywhere.optionalCommand('majorWound', UnidocKissValidator.validateManyWhitespace)
   )
 
   /**
@@ -37,10 +37,10 @@ export namespace StateCommand {
    * 
    */
   export function* reduce(): UnidocReducer<Mutables> {
-    let health: string | undefined = undefined
-    let mentalHealth: string | undefined = undefined
-    let magic: string | undefined = undefined
-    let luck: string | undefined = undefined
+    let health: string = '0'
+    let mentalHealth: string = '0'
+    let magic: string = '0'
+    let luck: string = '0'
     let temporaryInsane: boolean = false
     let indefinitelyInsane: boolean = false
     let majorWound: boolean = false

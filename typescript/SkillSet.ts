@@ -93,6 +93,32 @@ export class SkillSet {
   /**
    * 
    */
+  public delete(skill: Skill): SkillSet {
+    const index: number = this.indexOf(skill)
+
+    if (index < 0) {
+      return this
+    } else {
+      return new SkillSet(this.entries.delete(index))
+    }
+  }
+
+  /**
+   * 
+   */
+  public set(skill: Skill, value: Value): SkillSet {
+    const index: number = this.indexOf(skill)
+
+    if (index < 0) {
+      return new SkillSet(this.entries.insert(-index - 1, Pair.create(skill, value)))
+    } else {
+      return new SkillSet(this.entries.set(index, Pair.create(skill, value)))
+    }
+  }
+
+  /**
+   * 
+   */
   public minus(other: SkillSet): SkillSet {
     const result: List<Pair<Skill, Value>> = List().asMutable()
 

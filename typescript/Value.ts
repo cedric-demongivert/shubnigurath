@@ -75,6 +75,36 @@ export class Value {
   /**
    * 
    */
+  public levelup(): Value {
+    const sum: number = this.sum()
+
+    if (sum >= 99) {
+      return this
+    }
+
+    const roll: number = (Math.random() * 100 + 1) << 0
+
+    if (roll > sum) {
+      const upgrade: number = (Math.random() * 10 + 1) << 0
+
+      return Value.create({
+        base: this.base,
+        modifiers: List.of(
+          ...this.modifiers,
+          Modifier.create({
+            value: Math.min(upgrade, 99 - sum),
+            label: 'Gain d\'expérience (' + roll + ' vs ' + sum + ')'
+          })
+        )
+      })
+    } else {
+      return this
+    }
+  }
+
+  /**
+   * 
+   */
   public sum(): number {
     let result: number = this.base || 0
 

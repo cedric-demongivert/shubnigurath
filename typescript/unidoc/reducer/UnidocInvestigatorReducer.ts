@@ -37,6 +37,12 @@ export namespace UnidocInvestigatorReducer {
       indent + '}'
     )
 
+    elements.push(
+      indent + '\\updates {\r\n' +
+      UnidocSkillSetReducer.reduce(investigator.updates, investigator.computeDefaultSkills(), indent + '  ') + '\r\n' +
+      indent + '}'
+    )
+
     return elements.join('\r\n\r\n')
   }
 }

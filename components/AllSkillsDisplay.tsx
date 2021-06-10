@@ -9,8 +9,15 @@ import { Pair } from '../typescript/data/Pair'
 import { SkillSet } from '../typescript/SkillSet'
 import { SkillLine } from './SkillLine'
 
-function renderSkill(pair: Pair<Skill, Value>) : ReactElement {
-  return <SkillLine skill={pair.left} value={pair.right} key={pair.left.toString()} />
+function renderSkill(updates: SkillSet, onSelect: (skill: Skill) => void, pair: Pair<Skill, Value>) : ReactElement {
+  return <SkillLine 
+    className={'is-clickable'} 
+    selected={updates.has(pair.left)} 
+    skill={pair.left} 
+    value={pair.right} 
+    key={pair.left.toString()} 
+    onClick={onSelect.bind(undefined, pair.left)}
+  />
 }
 
 /**
@@ -20,23 +27,25 @@ export function AllSkillsDisplay (properties: AllSkillsDisplay.Properties) {
   const defaultSkills: SkillSet = properties.value.computeDefaultSkills().minus(properties.value.skills)
   const skills: SkillSet = properties.value.skills.inherit(properties.value.computeDefaultSkills())
 
+  const handleSkillRendering = renderSkill.bind(undefined, properties.value.updates, properties.onSelect)
+
   return (
     <div className='container-fluid'>
       <div className='row'>
         <div className='col-12 col-md-12 col-lg'>
           <Label>Compétences (Expertise)</Label>
-          { skills.entries.map(renderSkill) }
+          { skills.entries.map(handleSkillRendering) }
         </div>
         <div className='col-12 d-block d-lg-none'>
           <br/>
         </div>
         <div className='col-12 col-md-6 col-lg'>
           <Label>Compétences (Défaut)</Label>
-          { defaultSkills.entries.slice(0, defaultSkills.entries.size >> 1).map(renderSkill) }
+          { defaultSkills.entries.slice(0, defaultSkills.entries.size >> 1).map(handleSkillRendering) }
         </div>
         <div className='col-12 col-md-6 col-lg'>
           <Label className='d-none d-md-flex'>Compétences (Défaut)</Label>
-          { defaultSkills.entries.slice(defaultSkills.entries.size >> 1).map(renderSkill) }
+          { defaultSkills.entries.slice(defaultSkills.entries.size >> 1).map(handleSkillRendering) }
         </div>
       </div>
     </div>
@@ -59,6 +68,11 @@ export namespace AllSkillsDisplay {
     /**
      * 
      */
-    value: Investigator
+    value: Investigator,
+
+    /**
+     * 
+     */
+    onSelect: (skill: Skill) => void
   }
 }
