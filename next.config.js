@@ -1,6 +1,6 @@
 module.exports = {
   basePath: '/shubnigurath-static',
-  assetsPrefix: '/',
+  assetsPrefix: '/shubnigurath-static',
   webpack: (config) => {
     config.module.rules.push(
       {
