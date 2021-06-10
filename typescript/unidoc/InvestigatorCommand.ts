@@ -3,25 +3,25 @@ import { UnidocReductionRequest } from '@cedric-demongivert/unidoc'
 import { UnidocKissValidator } from '@cedric-demongivert/unidoc'
 import { UnidocReducer } from '@cedric-demongivert/unidoc'
 
-import { CommandList } from './validator/command'
-import { CommandListElement } from './validator/command'
-import { validateCommandList } from './validator/command'
-
-import { Empty } from '../utils/Empty'
-
 import { Gender } from '../Gender'
 import { Investigator } from '../Investigator'
 import { Name } from '../Name'
 import { Address } from '../Address'
 import { CharacteristicSet } from '../CharacteristicSet'
+import { Summary } from '../Summary'
+import { SkillSet } from '../SkillSet'
+import { Mutables } from '../Mutables'
+
+import { CommandList } from './validator/command'
+import { CommandListElement } from './validator/command'
+import { validateCommandList } from './validator/command'
 
 import { NameCommand } from './NameCommand'
 import { GenderCommand } from './GenderCommand'
 import { AddressCommand } from './AddressCommand'
 import { CharacteristicSetCommand } from './CharacteristicSetCommand'
-import { Summary } from '../Summary'
-import { SkillSet } from '../SkillSet'
 import { SkillSetCommand } from './SkillSetCommand'
+import { StateCommand } from './StateCommand'
 
 /**
  * 
@@ -43,6 +43,7 @@ export namespace InvestigatorCommand {
     CommandListElement.anywhere.requiredCommand('home', AddressCommand.validate),
     CommandListElement.anywhere.requiredCommand('characteristics', CharacteristicSetCommand.validate),
     CommandListElement.anywhere.requiredCommand('skills', SkillSetCommand.validate),
+    CommandListElement.anywhere.optionalCommand('state', StateCommand.validate),
   )
 
   /**
@@ -56,18 +57,19 @@ export namespace InvestigatorCommand {
    * 
    */
   export function* reduce(): UnidocReducer<Investigator> {
-    let name: Name = Name.create({ first: 'none', last: 'none' })
-    let alias: string = Empty.STRING
-    let job: string = Empty.STRING
-    let matricule: string = Empty.STRING
-    let gender: Gender = Gender.DEFAULT
-    let age: string = Empty.STRING
-    let birthdate: string = Empty.STRING
-    let hiringdate: string = Empty.STRING
-    let birthplace: Address = Address.create({ country: 'none' })
-    let home: Address = Address.create({ country: 'none' })
+    let name: Name | undefined = undefined
+    let alias: string | undefined = undefined
+    let job: string | undefined = undefined
+    let matricule: string | undefined = undefined
+    let gender: Gender | undefined = undefined
+    let age: string | undefined = undefined
+    let birthdate: string | undefined = undefined
+    let hiringdate: string | undefined = undefined
+    let birthplace: Address | undefined = undefined
+    let home: Address | undefined = undefined
     let characteristics: CharacteristicSet = CharacteristicSet.empty()
     let skills: SkillSet = SkillSet.empty()
+    let mutables: Mutables | undefined = undefined
 
     yield* UnidocReducer.skipStart()
     yield* UnidocReducer.skipWhitespaces()
@@ -80,6 +82,8 @@ export namespace InvestigatorCommand {
           name = yield* UnidocReducer.reduceTag.content(NameCommand.reduce())
         } else if (current.isStartOfTag('alias')) {
           alias = yield* UnidocReducer.reduceTag.content(UnidocReducer.reduceText())
+        } else if (current.isStartOfTag('state')) {
+          mutables = yield* UnidocReducer.reduceTag.content(StateCommand.reduce())
         } else if (current.isStartOfTag('job')) {
           job = yield* UnidocReducer.reduceTag.content(UnidocReducer.reduceText())
         } else if (current.isStartOfTag('matricule')) {
@@ -112,13 +116,14 @@ export namespace InvestigatorCommand {
             matricule,
             gender,
             age: parseInt(age),
-            birthdate: new Date(birthdate),
-            hiringdate: new Date(hiringdate),
+            birthdate,
+            hiringdate,
             birthplace,
             home
           }),
           characteristics,
-          skills
+          skills,
+          mutables
         })
       } else {
         current = yield UnidocReductionRequest.NEXT

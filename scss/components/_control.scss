@@ -58,10 +58,72 @@
         text-align: right;
 
         line-height: 1em;
+
+        -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+        appearance: textfield;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
       }
 
       input:focus {
         outline: none;
+      }
+
+      .btn.btn-increment,
+      .btn.btn-decrement {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        position: absolute;
+
+        left: -20px;
+
+        margin: 0px;
+        padding: 0px;
+        border: none;
+        border-radius: 0px;
+
+        width: 20px;
+        height: 50%;
+
+        overflow: hidden;
+
+        background: none;
+      }
+
+      .btn.btn-increment {
+        top: 0px;
+
+        &::before {
+          content: "▲";
+          font-size: 10px;
+
+          margin: 0px;
+          padding: 0px;
+          border: none;
+          height: 10px;
+        }
+      }
+
+      .btn.btn-decrement {
+        bottom: 0px;
+
+        &::before {
+          content: "▼";
+          font-size: 10px;
+
+          margin: 0px;
+          padding: 0px;
+          border: none;
+          height: 10px;
+        }
       }
     }
   }

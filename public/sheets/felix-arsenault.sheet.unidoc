@@ -1,0 +1,132 @@
+\name { 
+  \first { Félix } 
+  \last { Arsenault }
+}
+
+\alias { Derringer }
+
+\job { Détective privé }
+
+\matricule { 15.08.06 }
+
+\gender { male }
+
+\age { 43 }
+
+\birthdate { 1880-05-23 }
+
+\hiringdate { 1923-06-18 }
+
+\birthplace {
+  \country { Canada }
+  \state { Québec }
+  \city { Chambly }
+}
+
+\home {
+  \country { Canada }
+  \state { Québec }
+  \city { Montréal }
+  \district { Laurier }
+  \street { Rue St. Dominique }
+}
+
+\characteristics {
+  \appearance {
+    \base { 60 }
+    \modifier { -5 Vieillissement (40+) }
+  }
+
+  \constitution {
+    \base { 45 }
+  }
+
+  \dexterity {
+    \base { 70 }
+  }
+  
+  \education {
+    \base { 40 }
+    \modifier { +5 Vieillissement (40+) }
+    \modifier { +9 Vieillissement (40+) }
+  }
+
+  \intelligence {
+    \base { 75 }
+  }
+
+  \power {
+    \base { 50 }
+  }
+
+  \size {
+    \base { 50 }
+  }
+
+  \strength {
+    \base { 70 }
+    \modifier { -5 Vieillissement (40+)}
+  }
+
+  \luck {
+    \base { 75 }
+  }
+}
+
+\skills {
+  \skill {
+    \family { Bibliothèque }
+    \modifier { 40 Expérience (Détective privé) }
+  }
+
+  \skill {
+    \family { Imposture }
+    \modifier { 55 Expérience (Détective privé) }
+  }
+
+  \skill {
+    \family { Armes de poing }
+    \modifier { 50 Expérience (Détective privé) }
+  }
+
+  \skill {
+    \family { Psychologie }
+    \modifier { 50 Expérience (Détective privé) }
+  }
+
+  \skill {
+    \family { Baratin }
+    \modifier { 55 Expérience (Détective privé) }
+  }
+
+  \skill {
+    \family { Crédit }
+    \modifier { 25 Expérience (Détective privé) }
+  }
+
+  \skill {
+    \family { Occultisme }
+    \modifier { 15 Expérience (Détective privé) }
+  }
+
+  \skill {
+    \family { Écouter }
+    \modifier { 40 Expérience (Détective privé) }
+  }
+
+  \skill {
+    \family { Anglais }
+    \base { 1 }
+    \modifier { 29 Expérience (Détective privé) }
+  }
+
+  \skill {
+    \family { Discrétion }
+    \modifier { 30 Expérience (Détective privé) }
+  }
+
+  \skill {
+    \family { Trouver objet caché }
+    \modifier { 25 Expérience (Détective privé) }
+  }
+}

@@ -13,6 +13,10 @@
 @import "./layout/triplet";
 @import "./layout/filler";
 @import "./layout/centered";
+@import "./layout/shadowed";
+@import "./layout/rotulus";
+@import "./layout/collection";
+@import "./layout/slider";
 
 @import "./components/separator";
 @import "./components/field";
@@ -23,6 +27,7 @@
 @import "./components/skill";
 @import "./components/toggle";
 @import "./components/card";
+@import "./components/dot-loader";
 
 @import "./theme/checkbox";
 
@@ -30,4 +35,6 @@
 @import "./states/label";
 @import "./states/value";
 @import "./states/control";
+@import "./states/triplet";
 @import "./states/is-clickable";
+@import "./states/slider";

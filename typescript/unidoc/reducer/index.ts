@@ -1,0 +1,1 @@
+export { UnidocInvestigatorReducer } from './UnidocInvestigatorReducer'

@@ -1,0 +1,41 @@
+.layout.layout-shadowed {
+  display: inline-block;
+
+  position: relative;
+
+  height: auto;
+  width: auto;
+
+  margin: 0px;
+  padding: 0px;
+  border: none;
+
+  .layout-shadowed-shadow {
+    visibility: hidden;
+
+    height: auto;
+    width: auto;
+
+    margin: 0px;
+    padding: 0px;
+    border: none;
+  }
+
+  .layout-shadowed-projection {
+    display: inline-block;
+
+    position: absolute;
+
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+
+    height: auto;
+    width: auto;
+
+    margin: 0px;
+    padding: 0px;
+    border: none;
+  }
+}

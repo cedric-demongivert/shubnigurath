@@ -73,13 +73,18 @@
 
 \skills {
   \skill {
+    \family { Anglais }
+    \modifier { 20 Expérience (Contrebandière) }
+  }
+
+  \skill {
     \family { Conduite }
     \modifier { 40 Expérience (Contrebandière) }
   }
 
   \skill {
     \family { Corps à corps }
-    \modifier { 45 Expérience (Contrebandière) }
+    \modifier { 35 Expérience (Contrebandière) }
   }
 
   \skill {
@@ -93,27 +98,18 @@
   }
 
   \skill {
-    \family { Électricité }
-    \modifier { 20 Expérience (Contrebandière) }
-  }
-
-  \skill {
-    \family { Méchanique }
-    \modifier { 60 Expérience (Contrebandière) }
-  }
-
-  \skill {
-    \family { Persuasion }
+    \family { Intimidation }
+    \modifier { 15 Expérience (Contrebandière) }
     \modifier { 40 Expérience (Personnelle) }
   }
 
   \skill {
-    \family { Crochetage }
-    \modifier { 49 Expérience (Personnelle) }
+    \family { Méchanique }
+    \modifier { 50 Expérience (Contrebandière) }
   }
 
   \skill {
-    \family { Orientation }
-    \modifier { 30 Expérience (Personnelle) }
+    \family { Crochetage }
+    \modifier { 69 Expérience (Personnelle) }
   }
 }

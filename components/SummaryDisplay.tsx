@@ -1,6 +1,4 @@
-import { Field } from './Field'
 import { Label } from './Label'
-import { TextControl } from './form/TextControl'
 
 import { Investigator } from '../typescript/Investigator'
 import { Gender } from '../typescript/Gender'
@@ -11,26 +9,15 @@ import { CopyField } from './CopyField'
 /**
  * 
  */
-function formatDate (date: Date): string {
-  return (
-    date.getDay().toString().padStart(2, '0') + '-' + 
-    date.getMonth().toString().padStart(2, '0') + '-' + 
-    date.getFullYear()
-  )
-}
-
-/**
- * 
- */
 export function SummaryDisplay (properties: SummaryDisplay.Properties) {
   const summary: Summary = properties.value.summary
 
-  const name: string = summary.name.toString()
-  const gender: string = summary.gender === Gender.MALE ? 'M' : 'F' 
-  const birthdate: string = formatDate(summary.birthdate)
-  const hiringdate: string = formatDate(summary.hiringdate)
-  const birthplace: string = summary.birthplace.toString()
-  const home: string = summary.home.toString()
+  const name: string = summary.name == null ? 'Non Défini' : summary.name.toString()
+  const gender: string = summary.gender == null ? 'Non Défini' : (summary.gender === Gender.MALE ? 'M' : 'F' )
+  const birthdate: string = summary.birthdate == null ? 'Non Défini' : summary.birthdate
+  const hiringdate: string = summary.hiringdate == null ? 'Non Défini' : summary.hiringdate
+  const birthplace: string = summary.birthplace == null ? 'Non Défini' : summary.birthplace.toString()
+  const home: string = summary.home == null ? 'Non Défini' : summary.home.toString()
 
   return (
       <div className='container-fluid'>

@@ -1,32 +1,33 @@
 import { Gender } from './Gender'
 import { Address } from './Address'
 import { Name } from './Name'
+import { Empty } from './utils'
 
 export class Summary {
   /**
   *
   */
-  public readonly name: Name
+  public readonly name: Name | undefined
 
   /**
   *
   */
-  public readonly alias: string
+  public readonly alias: string | undefined
 
   /**
   *
   */
-  public readonly job: string
+  public readonly job: string | undefined
 
   /**
   *
   */
-  public readonly matricule: string
+  public readonly matricule: string | undefined
 
   /**
   *
   */
-  public readonly gender: Gender
+  public readonly gender: Gender | undefined
 
   /**
   *
@@ -36,40 +37,52 @@ export class Summary {
   /**
   *
   */
-  public readonly birthdate: Date
+  public readonly birthdate: string | undefined
 
   /**
   *
   */
-  public readonly hiringdate: Date
+  public readonly hiringdate: string | undefined
 
   /**
   *
   */
-  public readonly birthplace: Address
+  public readonly birthplace: Address | undefined
 
   /**
   *
   */
-  public readonly home: Address
+  public readonly home: Address | undefined
 
   /**
    * 
    */
-  public static create(properties: Summary.Properties): Summary {
-    return new Summary(properties)
+  public static readonly EMPTY: Summary = new Summary()
+
+  /**
+   * 
+   */
+  public static empty(): Summary {
+    return Summary.EMPTY
   }
 
   /**
    * 
    */
-  private constructor(properties: Summary.Properties) {
+  public static create(properties: Summary.Properties = Empty.OBJECT): Summary {
+    return properties === Empty.OBJECT ? Summary.EMPTY : new Summary(properties)
+  }
+
+  /**
+   * 
+   */
+  private constructor(properties: Summary.Properties = Empty.OBJECT) {
     this.name = properties.name
     this.alias = properties.alias
     this.job = properties.job
     this.matricule = properties.matricule
     this.gender = properties.gender
-    this.age = properties.age
+    this.age = properties.age || 0
     this.birthdate = properties.birthdate
     this.hiringdate = properties.hiringdate
     this.birthplace = properties.birthplace
@@ -110,51 +123,51 @@ export namespace Summary {
     /**
     *
     */
-    readonly name: Name
+    name?: Name | undefined
 
     /**
     *
     */
-    readonly alias: string
+    alias?: string | undefined
 
     /**
     *
     */
-    readonly job: string
+    job?: string | undefined
 
     /**
     *
     */
-    readonly matricule: string
+    matricule?: string | undefined
 
     /**
     *
     */
-    readonly gender: Gender
+    gender?: Gender | undefined
 
     /**
     *
     */
-    readonly age: number
+    age?: number | undefined
 
     /**
     *
     */
-    readonly birthdate: Date
+    birthdate?: string | undefined
 
     /**
     *
     */
-    readonly hiringdate: Date
+    hiringdate?: string | undefined
 
     /**
     *
     */
-    readonly birthplace: Address
+    birthplace?: Address | undefined
 
     /**
     *
     */
-    readonly home: Address
+    home?: Address | undefined
   }
 }

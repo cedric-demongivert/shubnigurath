@@ -1,0 +1,8 @@
+.field:focus .layout.layout-triplet,
+.field:hover .layout.layout-triplet,
+.field.is-focus .layout.layout-triplet {
+  &,
+  * {
+    color: $focus-color;
+  }
+}

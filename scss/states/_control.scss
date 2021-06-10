@@ -4,4 +4,8 @@
   &.control-value * {
     color: $focus-color;
   }
+
+  &.control-boolean * {
+    border-color: #ff8f00;
+  }
 }

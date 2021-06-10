@@ -1,16 +1,16 @@
 import { Investigator } from '../typescript/Investigator'
 import { CharacteristicSet } from '../typescript/CharacteristicSet'
 
-import { ValueControl } from './form/ValueControl'
+import { ValueField } from './form/ValueField'
 
-import { Field } from './Field'
 import { Label } from './Label'
 import { ValueRenderer } from './ValueRenderer'
 import { CopyField } from './CopyField'
 import { PureComponent, ReactElement } from 'react'
-import { ControlEvent } from '../typescript/redux/ControlEvent'
-import { FieldReducer } from '../typescript/redux/FieldReducer'
 import { Mutables } from '../typescript/Mutables'
+import { IncrementEvent, Pancrement } from './increment'
+import { DataEvent } from '../typescript/redux/DataEvent'
+import { DataReducer } from '../typescript/redux'
 
 /**
  * 
@@ -24,17 +24,21 @@ export class CharacteristicSetRenderer extends PureComponent<CharacteristicSetRe
     super(properties)
 
     this.handleLuckChange = this.handleLuckChange.bind(this)
+    this.handleLuckIncrement = this.handleLuckIncrement.bind(this)
   }
 
   /**
    * 
    */
-  private handleLuckChange (event: ControlEvent): void {
+  private handleLuckChange (event: DataEvent<number>): void {
     if (this.props.onChange) {
       this.props.onChange(
-        Mutables.create({
+        Investigator.create({
           ...this.props.value,
-          luck: FieldReducer.reduce(this.props.value.luck, event)
+          mutables: Mutables.create({
+            ...this.props.value.mutables,
+            luck: DataReducer.reduce(this.props.value.mutables.luck, event)
+          })
         }),
         this.props.value
       )
@@ -42,11 +46,18 @@ export class CharacteristicSetRenderer extends PureComponent<CharacteristicSetRe
   }
 
   /**
+   * 
+   */
+  private handleLuckIncrement (event: IncrementEvent): void {
+    console.log(event)
+  }
+
+  /**
    * @see React.Component.render
    */
   public render (): ReactElement {
-    const characteristics: CharacteristicSet = this.props.investigator.characteristics
-    const mutables: Mutables = this.props.value
+    const characteristics: CharacteristicSet = this.props.value.characteristics
+    const mutables: Mutables = this.props.value.mutables
 
     return (
         <div className='container-fluid'>
@@ -94,16 +105,15 @@ export class CharacteristicSetRenderer extends PureComponent<CharacteristicSetRe
               </CopyField>
             </div>
             <div className='col-4 col-md-6'>
-             <CopyField value={characteristics.intelligence.toString()} className='align-items-center'>
+              <CopyField value={characteristics.intelligence.toString()} className='align-items-center'>
                 <Label>Intelligence</Label>
                 <ValueRenderer>{ characteristics.intelligence }</ValueRenderer>
               </CopyField>
             </div>
             <div className='col-4 col-md-6'>
-              <Field>
+              <ValueField maximum={100} minimum={0} onChange={this.handleLuckChange} value={mutables.luck}>
                 <Label>Chance</Label>
-                <ValueControl maximum={100} minimum={0} onChange={this.handleLuckChange} value={mutables.luck.value} />
-              </Field>
+              </ValueField>
             </div>
           </div>
         </div>
@@ -119,7 +129,7 @@ export namespace CharacteristicSetRenderer {
   /**
    * 
    */
-  export type ChangeCallback = (next: Mutables, previous: Mutables) => void
+  export type ChangeCallback = (next: Investigator, previous: Investigator) => void
 
   /**
    * 
@@ -133,12 +143,7 @@ export namespace CharacteristicSetRenderer {
     /**
      * 
      */
-    readonly investigator: Investigator,
-
-    /**
-     * 
-     */
-    readonly value: Mutables,
+    readonly value: Investigator,
 
     /**
      * 

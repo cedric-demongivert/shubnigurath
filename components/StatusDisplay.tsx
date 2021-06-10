@@ -1,12 +1,10 @@
 import { PureComponent } from 'react'
 import { ReactElement } from 'react'
 
-import { Field } from './Field'
 import { Label } from './Label'
-import { MovementControl } from './form/MovementControl'
-import { BoundStatisticControl } from './form/BoundStatisticControl'
-import { TextControl } from './form/TextControl'
-import { BooleanControl } from './form/BooleanControl'
+import { MovementRenderer } from './MovementRenderer'
+import { BooleanField } from './form/BooleanField'
+import { CopyField } from './CopyField'
 
 import { Investigator } from '../typescript/Investigator'
 import { CharacteristicSet } from '../typescript/CharacteristicSet'
@@ -14,6 +12,8 @@ import { ControlEvent } from '../typescript/redux/ControlEvent'
 import { FieldReducer } from '../typescript/redux/FieldReducer'
 import { Empty } from '../typescript/utils'
 import { Mutables } from '../typescript/Mutables'
+import { BoundStatisticField } from './form/BoundStatisticField'
+import { DataEvent, DataReducer } from '../typescript/redux'
 
 /**
  * 
@@ -38,16 +38,22 @@ export class StatusDisplay extends PureComponent<StatusDisplay.Properties> {
     this.handleTemporaryInsaneChange = this.handleTemporaryInsaneChange.bind(this)
     this.handleIndefinitelyInsaneChange = this.handleIndefinitelyInsaneChange.bind(this)
     this.handleMajorWoundChange = this.handleMajorWoundChange.bind(this)
+    this.handleHealthChange = this.handleHealthChange.bind(this)
+    this.handleMagicChange = this.handleMagicChange.bind(this)
+    this.handleMentalHealthChange = this.handleMentalHealthChange.bind(this)
   }
 
   /**
    * 
    */
-  public handleTemporaryInsaneChange (event: ControlEvent): void {
+  public handleTemporaryInsaneChange (event: DataEvent<boolean>): void {
     this.props.onChange(
-      Mutables.create({
+      Investigator.create({
         ...this.props.value,
-        temporaryInsane: FieldReducer.reduce(this.props.value.temporaryInsane, event)
+        mutables: Mutables.create({
+          ...this.props.value.mutables,
+          temporaryInsane: DataReducer.reduce(this.props.value.mutables.temporaryInsane, event)
+        })
       }),
       this.props.value
     )
@@ -56,11 +62,14 @@ export class StatusDisplay extends PureComponent<StatusDisplay.Properties> {
   /**
    * 
    */
-  public handleIndefinitelyInsaneChange (event: ControlEvent): void {
+  public handleIndefinitelyInsaneChange (event: DataEvent<boolean>): void {
     this.props.onChange(
-      Mutables.create({
+      Investigator.create({
         ...this.props.value,
-        indefinitelyInsane: FieldReducer.reduce(this.props.value.indefinitelyInsane, event)
+        mutables: Mutables.create({
+          ...this.props.value.mutables,
+          indefinitelyInsane: DataReducer.reduce(this.props.value.mutables.indefinitelyInsane, event)
+        })
       }),
       this.props.value
     )
@@ -69,11 +78,62 @@ export class StatusDisplay extends PureComponent<StatusDisplay.Properties> {
   /**
    * 
    */
-  public handleMajorWoundChange (event: ControlEvent): void {
+  public handleMajorWoundChange (event: DataEvent<boolean>): void {
     this.props.onChange(
-      Mutables.create({
+      Investigator.create({
         ...this.props.value,
-        majorWound: FieldReducer.reduce(this.props.value.majorWound, event)
+        mutables: Mutables.create({
+          ...this.props.value.mutables,
+          majorWound: DataReducer.reduce(this.props.value.mutables.majorWound, event)
+        })
+      }),
+      this.props.value
+    )
+  }
+
+  /**
+   * 
+   */
+  public handleHealthChange (event: DataEvent<number>): void {
+    this.props.onChange(
+      Investigator.create({
+        ...this.props.value,
+        mutables: Mutables.create({
+          ...this.props.value.mutables,
+          health: DataReducer.reduce(this.props.value.mutables.health, event)
+        })
+      }),
+      this.props.value
+    )
+  }
+
+  /**
+   * 
+   */
+  public handleMagicChange (event: DataEvent<number>): void {
+    this.props.onChange(
+      Investigator.create({
+        ...this.props.value,
+        mutables: Mutables.create({
+          ...this.props.value.mutables,
+          magic: DataReducer.reduce(this.props.value.mutables.magic, event)
+        })
+      }),
+      this.props.value
+    )
+  }
+
+  /**
+   * 
+   */
+  public handleMentalHealthChange (event: DataEvent<number>): void {
+    this.props.onChange(
+      Investigator.create({
+        ...this.props.value,
+        mutables: Mutables.create({
+          ...this.props.value.mutables,
+          mentalHealth: DataReducer.reduce(this.props.value.mutables.mentalHealth, event)
+        })
       }),
       this.props.value
     )
@@ -83,78 +143,60 @@ export class StatusDisplay extends PureComponent<StatusDisplay.Properties> {
    * 
    */
   public render (): ReactElement {
-    const investigator: Investigator = this.props.investigator
-    const mutables: Mutables = this.props.value
+    const investigator: Investigator = this.props.value
+    const mutables: Mutables = this.props.value.mutables
     const characteristics: CharacteristicSet = investigator.characteristics
 
     return (
       <div className='container-fluid'>
         <div className='row'>
           <div className='col-4 col-md-6 col-lg'>
-            <Field>
+            <BoundStatisticField onChange={this.handleHealthChange} value={mutables.health} maximum={investigator.maximumHP}>
               <Label>Points de vie</Label>
-              <BoundStatisticControl readonly value={mutables.health.value} ceil={investigator.maximumHP} />
-            </Field>
+            </BoundStatisticField>
           </div>
           <div className='col-4 col-md-6 col-lg'>
-            <Field>
+            <BoundStatisticField onChange={this.handleMentalHealthChange} value={mutables.mentalHealth} maximum={characteristics.power.sum()}>
               <Label>Santé mentale</Label>
-              <BoundStatisticControl readonly value={mutables.mentalHealth.value} ceil={characteristics.power.sum()} />
-            </Field>
+            </BoundStatisticField>
           </div>
-          <div className='col-4 col-md-6 col-lg'>
-            <Field>
+          <div className='col-4 col-md-6 col-lg'> 
+            <BoundStatisticField onChange={this.handleMagicChange} value={mutables.magic} maximum={investigator.maximumMP}>
               <Label>Points de magie</Label>
-              <BoundStatisticControl readonly value={mutables.magic.value} ceil={investigator.maximumMP} />
-            </Field>
+            </BoundStatisticField>
           </div>
           <div className='col-4 col-md-6 col-lg'>
-            <Field>
+            <BooleanField value={mutables.majorWound} onChange={this.handleMajorWoundChange}>
               <Label>Blessure grave</Label>
-              <BooleanControl 
-                value={mutables.majorWound.value} 
-                focus={mutables.majorWound.focus} 
-                onChange={this.handleMajorWoundChange}
-              />
-            </Field>
+            </BooleanField>
           </div>
           <div className='col-4 col-md-6 col-lg'>
-            <Field>
+            <BooleanField value={mutables.temporaryInsane} onChange={this.handleTemporaryInsaneChange}>
               <Label>Folie temporaire</Label>
-              <BooleanControl 
-                value={mutables.temporaryInsane.value} 
-                focus={mutables.temporaryInsane.focus}
-                onChange={this.handleTemporaryInsaneChange}
-              />
-            </Field>
+            </BooleanField>
           </div>
           <div className='col-4 col-md-6 col-lg'>
-            <Field>
+            <BooleanField value={mutables.indefinitelyInsane} onChange={this.handleIndefinitelyInsaneChange}>
               <Label>Folie persistante</Label>
-              <BooleanControl 
-                value={mutables.indefinitelyInsane.value} 
-                focus={mutables.indefinitelyInsane.focus}
-                onChange={this.handleIndefinitelyInsaneChange}
-              />
-            </Field>
+            </BooleanField>
           </div>
           <div className='col-4 col-md-6 col-lg'>
-            <Field>
+            <CopyField value={investigator.impact} className='align-items-center'>
               <Label>Impact</Label>
-              <TextControl className='text-center' readonly value={investigator.impact} />
-            </Field>
+              { investigator.impact }
+            </CopyField>
           </div>
           <div className='col-4 col-md-6 col-lg'>
-            <Field>
+            <CopyField value={investigator.carrure.toString()} className='align-items-center'>
               <Label>Carrure</Label>
-              <TextControl className='text-center' readonly value={investigator.carrure} />
-            </Field>
+              { investigator.carrure }
+            </CopyField>
           </div>
           <div className='col-4 col-md-6 col-lg'>
-           <Field>
+            <CopyField value={investigator.movement.toString()} className='align-items-center'>
               <Label>Mouvement</Label>
-              <MovementControl readonly value={investigator.movement} />
-            </Field>
+              <MovementRenderer value={ investigator.carrure } />
+            </CopyField>
           </div>
         </div>
       </div>
@@ -168,7 +210,7 @@ export namespace StatusDisplay {
   /**
    * 
    */
-  export type ChangeCallback = (next: Mutables, previous: Mutables) => void
+  export type ChangeCallback = (next: Investigator, previous: Investigator) => void
 
   /**
    * 
@@ -192,12 +234,7 @@ export namespace StatusDisplay {
     /**
      * 
      */
-    readonly investigator: Investigator,
-
-    /**
-     * 
-     */
-    readonly value: Mutables
+    readonly value: Investigator
   }
 
   /**

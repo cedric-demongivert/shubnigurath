@@ -1,0 +1,131 @@
+\name { 
+  \first { François } 
+  \last { Moreau }
+}
+
+\alias { Sirop }
+
+\job { Chirurgien }
+
+\matricule { 05.03.02 }
+
+\gender { male }
+
+\age { 32 }
+
+\birthdate { 1890-10-14 }
+
+\hiringdate { 1923-06-18 }
+
+\birthplace {
+  \country { Canada }
+  \state { Québec }
+  \city { Saint-Hyacinthe }
+}
+
+\home {
+  \country { Canada }
+  \state { Québec }
+  \city { Montréal }
+  \district { St Louis }
+  \street { Avenue Laval }
+}
+
+\characteristics {
+  \appearance {
+    \base { 60 }
+  }
+
+  \constitution {
+    \base { 40 }
+  }
+
+  \dexterity {
+    \base { 60 }
+  }
+  
+  \education {
+    \base { 80 }
+  }
+
+  \intelligence {
+    \base { 40 }
+  }
+
+  \power {
+    \base { 40 }
+  }
+
+  \size {
+    \base { 60 }
+  }
+
+  \strength {
+    \base { 40 }
+  }
+
+  \luck {
+    \base { 40 }
+  }
+}
+
+\skills {
+  \skill {
+    \family { Crédit }
+    \modifier { 40 Expérience (Médecin) }
+  }
+
+  \skill {
+    \family { Anglais }
+    \base { 1 }
+    \modifier { 29 Expérience (Médecin) }
+  }
+
+  \skill {
+    \family { Latin }
+    \base { 1 }
+    \modifier { 39 Expérience (Médecin) }
+  }
+
+  \skill {
+    \family { Médecine }
+    \modifier { 74 Expérience (Médecin) }
+  }
+
+  \skill {
+    \family { Premiers soins }
+    \modifier { 40 Expérience (Médecin) }
+  }
+
+  \skill {
+    \family { Biologie }
+    \base { 1 }
+    \modifier { 39 Expérience (Médecin) }
+  }
+
+  \skill {
+    \family { Pharmacologie }
+    \base { 1 }
+    \modifier { 49 Expérience (Médecin) }
+  }
+
+  \skill {
+    \family { Naturalisme }
+    \modifier { 30 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Fusils }
+    \modifier { 35 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Trouver objet caché }
+    \modifier { 25 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Psychologie }
+    \modifier { 50 Expérience (Médecin) }
+  }
+}

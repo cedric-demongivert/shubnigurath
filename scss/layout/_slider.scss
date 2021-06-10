@@ -1,0 +1,23 @@
+.layout.layout-slider {
+  position: relative;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  width: auto;
+  height: 100%;
+
+  padding: 0px;
+  margin: 0px;
+  border: none;
+
+  overflow: hidden;
+
+  & > * {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}

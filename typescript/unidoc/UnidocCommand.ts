@@ -45,6 +45,20 @@ export namespace UnidocCommand {
 
     return yield* reducer
   }
+
+  /**
+   * 
+   */
+  export namespace reduce {
+    /**
+     * 
+     */
+    export function factory<T>(reducer: UnidocReducer.Factory<T>): UnidocReducer.Factory<T> {
+      return function (): UnidocReducer<T> {
+        return reduce(reducer())
+      }
+    }
+  }
 }
 
 

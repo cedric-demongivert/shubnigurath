@@ -6,7 +6,8 @@ import { Modifier } from './Modifier'
 import { List } from 'immutable'
 import { Pair } from './data'
 import { Skill } from './Skill'
-import { Field } from './redux/Field'
+import { Empty } from './utils'
+import { Mutables } from './Mutables'
 
 /**
  * 
@@ -26,6 +27,11 @@ export class Investigator {
    * 
    */
   public readonly skills: SkillSet
+
+  /**
+   * 
+   */
+  public readonly mutables: Mutables
 
   /**
    * 
@@ -138,17 +144,30 @@ export class Investigator {
   /**
    * 
    */
-  public static create(properties: Investigator.Properties): Investigator {
-    return new Investigator(properties)
+  public static readonly EMPTY: Investigator = new Investigator()
+
+  /**
+   * 
+   */
+  public static empty(): Investigator {
+    return Investigator.EMPTY
   }
 
   /**
    * 
    */
-  private constructor(properties: Investigator.Properties) {
-    this.summary = properties.summary
+  public static create(properties: Investigator.Properties = Empty.OBJECT): Investigator {
+    return properties === Empty.OBJECT ? Investigator.EMPTY : new Investigator(properties)
+  }
+
+  /**
+   * 
+   */
+  private constructor(properties: Investigator.Properties = Empty.OBJECT) {
+    this.summary = properties.summary || Summary.empty()
     this.characteristics = properties.characteristics || CharacteristicSet.empty()
     this.skills = properties.skills || SkillSet.empty()
+    this.mutables = properties.mutables || Mutables.fromInvestigator(this)
   }
 
   /**
@@ -233,16 +252,21 @@ export namespace Investigator {
     /**
      *
      */
-    readonly summary: Summary,
+    summary?: Summary | undefined,
 
     /**
      *
      */
-    readonly characteristics?: CharacteristicSet | undefined,
+    characteristics?: CharacteristicSet | undefined,
 
     /**
      *
      */
-    readonly skills?: SkillSet | undefined
+    skills?: SkillSet | undefined,
+
+    /**
+     *
+     */
+    mutables?: Mutables | undefined
   }
 }

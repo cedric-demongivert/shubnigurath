@@ -3,7 +3,7 @@ import { ReactElement } from 'react'
 
 import Head from 'next/head'
 
-import { Unidoc } from '../components/Unidoc'
+import { HomePage } from '../components/page/home/HomePage'
 
 /**
 *
@@ -16,14 +16,7 @@ export default function index (properties : index.Properties) : ReactElement {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
 
-      <div className='container'>
-        <div className='row'>
-          <div className='page page-character-sheet'>
-            <Unidoc value={require('../public/sheets/felix-arsenault.unidoc').default} />
-          </div>
-        </div>
-      </div>
-      
+      <HomePage />
     </div>
   )
 }

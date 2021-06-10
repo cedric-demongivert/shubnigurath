@@ -1,0 +1,26 @@
+.layout.layout-collection {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  width: 100%;
+  height: auto;
+
+  padding: 0px;
+  margin: 0px;
+  border: none;
+
+  & > * {
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+
+  &.layout-collection-row {
+    flex-flow: row nowrap;
+
+    width: auto;
+    height: 100%;
+  }
+}
