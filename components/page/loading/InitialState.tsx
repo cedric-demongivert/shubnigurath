@@ -117,7 +117,7 @@ export class InitialState extends React.PureComponent<InitialState.Properties> {
                   onChange={this.handleInputChange}
                   ref={this._input} 
                   type='file' 
-                  accept='.sheet.unidoc,.unidoc,.txt' 
+                  accept='.sheet.unidoc,.unidoc,text/plain' 
                   style={{ display: 'none' }}
                 />
                 { this.props.cancellable ? <br/> : null }

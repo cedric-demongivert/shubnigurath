@@ -66,7 +66,7 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
       now.getHours() + '-' +
       now.getMinutes() + '-' + 
       now.getSeconds() + '-' +
-      now.getMilliseconds() + '.sheet.unidoc'
+      now.getMilliseconds() + '.txt'
     )
 
     href.style.display = 'none'
