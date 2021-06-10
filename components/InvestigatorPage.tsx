@@ -53,12 +53,20 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
    * 
    */
   public handleSave(): void {
+    const now: Date = new Date()
     const href: HTMLAnchorElement = document.createElement('a')
     href.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(UnidocInvestigatorReducer.reduce(this.props.value)))
     href.setAttribute(
       'download', 
       this.props.value.summary.name.first.toLocaleLowerCase() + '-' + 
-      this.props.value.summary.name.last.toLocaleLowerCase() + '.sheet.unidoc'
+      this.props.value.summary.name.last.toLocaleLowerCase() + '-' + 
+      now.getFullYear() + '-' + 
+      now.getMonth() + '-' + 
+      now.getDay() + '-' + 
+      now.getHours() + '-' +
+      now.getMinutes() + '-' + 
+      now.getSeconds() + '-' +
+      now.getMilliseconds() + '.sheet.unidoc'
     )
 
     href.style.display = 'none'

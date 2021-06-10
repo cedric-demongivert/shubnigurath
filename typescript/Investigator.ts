@@ -278,7 +278,7 @@ export class Investigator {
 
           skillsIndex += 1
         } else {
-          const base: Value = defaultSkills.has(currentSkillToUpdate) ? defaultSkills.get(currentSkillToUpdate) : Value.create(1)
+          const base: Value = defaultSkills.has(currentSkillToUpdate) ? defaultSkills.get(currentSkillToUpdate) : Value.create(0)
           const levelup: Value = base.levelup()
 
           if (base !== levelup) {
