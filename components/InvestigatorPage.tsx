@@ -81,7 +81,7 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
           <div className='container'>
             <div className='row justify-content-center align-items-center'>
               <div className='col-8 col-md-4 order-md-1 col-lg-3 order-lg-1'>
-                <img className='img-fluid' src='/images/logo.svg' />
+                <img className='img-fluid' src='./images/logo.svg' />
               </div>
 
               <div className='col-12 d-block d-md-none'>

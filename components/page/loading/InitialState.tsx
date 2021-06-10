@@ -104,7 +104,7 @@ export class InitialState extends React.PureComponent<InitialState.Properties> {
           <div className='container-fluid'>
             <div className='row justify-content-center align-items-center'>
               <div className='col-10 col-md-8 col-lg-6 col-xl-6 text-center'>
-                <img className='img-fluid' src='/images/logo.svg' />
+                <img className='img-fluid' src='./images/logo.svg' />
               </div>
             </div>
             <div className='row justify-content-center align-items-center'>
