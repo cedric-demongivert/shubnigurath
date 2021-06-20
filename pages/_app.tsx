@@ -1,22 +1,43 @@
 import React from 'react'
-import { JSXElementConstructor } from 'react'
-import { ReactElement } from 'react'
-import { PureComponent } from 'react'
+import { NextRouter } from 'next/router'
+
+
+import { Application } from '../components/Application'
 
 import '../scss/app.scss'
 
-export default class Application extends PureComponent<Application.Properties> {
-  public render () : ReactElement {
-    return (
-      <this.props.Component { ...this.props.pageProps } />
-    )
-  }
-}
+/**
+ * 
+ */
+export default function application (properties: Readonly<application.Properties>): React.ReactElement {
+  return (
+    <Application router={properties.router}>
+      <properties.Component {...properties.pageProps} />
+    </Application>
+  )
+} 
 
-
-export namespace Application {
+/**
+ * 
+ */
+export namespace application {
+  /**
+   * 
+   */
   export type Properties = {
-    pageProps: any,
-    Component: JSXElementConstructor<any>
+    /**
+     * 
+     */
+    Component: React.JSXElementConstructor<any>,
+
+    /**
+     * 
+     */
+    router: NextRouter
+
+    /**
+     * 
+     */
+    pageProps: object
   }
 }

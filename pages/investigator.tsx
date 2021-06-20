@@ -3,29 +3,33 @@ import { ReactElement } from 'react'
 
 import Head from 'next/head'
 
-import { LoadingPage } from '../components/page/loading/LoadingPage'
 import { VanillaLayout } from '../components/layout/VanillaLayout'
 import { Investigator } from '../typescript/Investigator'
 import { ApplicationEvent } from '../typescript/application/ApplicationEvent'
+import { InvestigatorPage } from '../components/page/investigator/InvestigatorPage'
+import { InvestigatorNotLoadedPage } from '../components/page/investigator/InvestigatorNotLoadedPage'
 
 /**
 *
 */
-export default function index (properties : index.Properties) : ReactElement {
+export default function investigator (properties : investigator.Properties) : ReactElement {
   return (
     <VanillaLayout>
       <Head>
-        <title>Shubniggurath - Choisir un investigateur</title>
+        <title>Shubniggurath - Investigateur</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
 
-      <LoadingPage cancellable={properties.investigator != null} {...properties} />
+      { 
+        properties.investigator ? <InvestigatorPage { ...properties } /> : <InvestigatorNotLoadedPage { ...properties } />
+      }
+      
     </VanillaLayout>
   )
 }
 
 
-export namespace index {
+export namespace investigator {
   /**
    * 
    */

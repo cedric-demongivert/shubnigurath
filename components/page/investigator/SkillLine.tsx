@@ -2,11 +2,11 @@ import React, { ReactElement } from 'react'
 
 import classnames from 'classnames'
 
-import { Skill } from '../typescript/Skill'
-import { Value } from '../typescript/Value'
+import { Skill } from '../../../typescript/Skill'
+import { Value } from '../../../typescript/Value'
+import { Toggler } from '../../../typescript/Toggler'
 
-import { Padding } from './Padding'
-import { Toggler } from '../typescript/Toggler'
+import { Padding } from '../../Padding'
 
 const IS_SELECTED: Toggler = Toggler.create('is-selected')
 

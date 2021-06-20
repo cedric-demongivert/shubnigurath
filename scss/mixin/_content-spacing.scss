@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use '../../../node_modules/bootstrap/scss/bootstrap' as bootstrap;
+@use '../variables' as variables;
+
+@mixin content-spacing {
+  @each $breakpoint in ("xs", "sm", "md", "lg") {
+    @if $breakpoint == "xs" {
+      margin-bottom: map.get(variables.$content-spacing, $breakpoint);
+    } @else {
+      @include bootstrap.media-breakpoint-up($breakpoint) {
+        margin-bottom: map.get(variables.$content-spacing, $breakpoint);
+      }
+    }
+  }
+}

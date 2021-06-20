@@ -1,12 +1,13 @@
-import { Label } from './Label'
-
-import { Investigator } from '../typescript/Investigator'
 import { ReactElement } from 'react'
-import { Skill } from '../typescript/Skill'
-import { Value } from '../typescript/Value'
-import { Pair } from '../typescript/data/Pair'
 
-import { SkillSet } from '../typescript/SkillSet'
+import { Investigator } from '../../../typescript/Investigator'
+import { Skill } from '../../../typescript/Skill'
+import { Value } from '../../../typescript/Value'
+import { Pair } from '../../../typescript/data/Pair'
+import { SkillSet } from '../../../typescript/SkillSet'
+
+import { Label } from '../../Label'
+
 import { SkillLine } from './SkillLine'
 
 function renderSkill(updates: SkillSet, onSelect: (skill: Skill) => void, pair: Pair<Skill, Value>) : ReactElement {
@@ -23,7 +24,7 @@ function renderSkill(updates: SkillSet, onSelect: (skill: Skill) => void, pair: 
 /**
  * 
  */
-export function AllSkillsDisplay (properties: AllSkillsDisplay.Properties) {  
+export function AllSkillsRenderer (properties: AllSkillsRenderer.Properties) {  
   const defaultSkills: SkillSet = properties.value.computeDefaultSkills().minus(properties.value.skills)
   const skills: SkillSet = properties.value.skills.inherit(properties.value.computeDefaultSkills())
 
@@ -55,7 +56,7 @@ export function AllSkillsDisplay (properties: AllSkillsDisplay.Properties) {
 /**
  * 
  */
-export namespace AllSkillsDisplay {
+export namespace AllSkillsRenderer {
   /**
    * 
    */

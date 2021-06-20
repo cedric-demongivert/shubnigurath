@@ -5,7 +5,7 @@ import { KeyboardEvent } from 'react'
 
 import classnames from 'classnames'
 
-import { Focusable } from './Focusable'
+import { Focusable } from '../../Focusable'
 import copy from 'clipboard-copy'
 
 /**

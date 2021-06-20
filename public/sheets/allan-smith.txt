@@ -1,0 +1,127 @@
+\name { 
+  \first { Allan } 
+  \last { Smith }
+}
+
+\alias { Poe }
+
+\job { Journaliste }
+
+\matricule { 19.02.01 }
+
+\gender { male }
+
+\age { 42 }
+
+\birthdate { 1880-10-07 }
+
+\hiringdate { 1923-06-05 }
+
+\birthplace {
+  \city { Québec }
+  \state { Québec }
+  \country { Canada }
+}
+
+\home {
+  \city { Montréal }
+  \state { Québec }
+  \country { Canada }
+  \district { St. Henry }
+  \street { Rue Langevin }
+}
+
+\characteristics {
+  \appearance {
+    \base { 40 }
+  }
+
+  \constitution {
+    \base { 40 }
+  }
+
+  \dexterity {
+    \base { 60 }
+  }
+  
+  \education {
+    \base { 70 }
+  }
+
+  \intelligence {
+    \base { 60 }
+  }
+
+  \power {
+    \base { 50 }
+  }
+
+  \size {
+    \base { 40 }
+  }
+
+  \strength {
+    \base { 40 }
+  }
+
+  \luck {
+    \base { 60 }
+  }
+}
+
+\skills {
+  \skill {
+    \family { Français }
+    \base { 1 }
+    \modifier { 39 Expérience (Journaliste) }
+  }
+
+  \skill {
+    \family { Bibliothèque }
+    \modifier { 30 Expérience (Journaliste) }
+  }
+
+  \skill {
+    \family { Crédit }
+    \modifier { 25 Expérience (Journaliste) }
+  }
+
+  \skill {
+    \family { Trouver objet caché }
+    \modifier { 45 Expérience (Journaliste) }
+  }
+
+  \skill {
+    \family { Baratin }
+    \modifier { 45 Expérience (Journaliste) }
+    \modifier { 20 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Écouter }
+    \modifier { 30 Expérience (Journaliste) }
+    \modifier { 5 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Psychologie }
+    \modifier { 50 Expérience (Journaliste) }
+  }
+
+  \skill {
+    \family { Imposture }
+    \modifier { 55 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Discrétion }
+    \modifier { 31 Expérience (Journaliste) }
+    \modifier { 19 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Armes de poing }
+    \modifier { 10 Expérience (Journaliste) }
+    \modifier { 20 Expérience (Personnelle) }
+  }
+}

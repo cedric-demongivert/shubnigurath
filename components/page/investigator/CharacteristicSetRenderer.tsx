@@ -1,16 +1,18 @@
-import { Investigator } from '../typescript/Investigator'
-import { CharacteristicSet } from '../typescript/CharacteristicSet'
+import { PureComponent, ReactElement } from 'react'
 
-import { ValueField } from './form/ValueField'
+import { Investigator } from '../../../typescript/Investigator'
+import { CharacteristicSet } from '../../../typescript/CharacteristicSet'
+import { DataEvent } from '../../../typescript/redux/DataEvent'
+import { DataReducer } from '../../../typescript/redux'
+import { Mutables } from '../../../typescript/Mutables'
 
-import { Label } from './Label'
+import { ValueField } from '../../form/ValueField'
+import { IncrementEvent } from '../../increment/IncrementEvent'
+
+import { Label } from '../../Label'
+
 import { ValueRenderer } from './ValueRenderer'
 import { CopyField } from './CopyField'
-import { PureComponent, ReactElement } from 'react'
-import { Mutables } from '../typescript/Mutables'
-import { IncrementEvent, Pancrement } from './increment'
-import { DataEvent } from '../typescript/redux/DataEvent'
-import { DataReducer } from '../typescript/redux'
 
 /**
  * 

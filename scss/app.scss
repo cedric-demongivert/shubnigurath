@@ -1,40 +1,23 @@
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@use "../../node_modules/bootstrap/scss/bootstrap";
 
-@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
-@import "../../node_modules/@fortawesome/fontawesome-free/scss/regular";
-@import "../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@use "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+@use "../../node_modules/@fortawesome/fontawesome-free/scss/regular";
+@use "../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+
+@use "./base";
+@use "./layout";
+@use "./components";
 
 @import url("https://fonts.googleapis.com/css?family=Vesper+Libre&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Alegreya+SC&display=swap");
 
-@import "./vars";
-@import "./base";
-
-@import "./layout/triplet";
-@import "./layout/filler";
-@import "./layout/centered";
-@import "./layout/shadowed";
-@import "./layout/rotulus";
-@import "./layout/collection";
-@import "./layout/slider";
-
-@import "./components/separator";
-@import "./components/field";
-@import "./components/label";
-@import "./components/control";
-@import "./components/application";
-@import "./components/page";
-@import "./components/skill";
-@import "./components/toggle";
-@import "./components/card";
-@import "./components/dot-loader";
+@import "./variables";
 
 @import "./theme/checkbox";
 
-@import "./states/field";
-@import "./states/label";
-@import "./states/value";
-@import "./states/control";
-@import "./states/triplet";
-@import "./states/is-clickable";
-@import "./states/slider";
+@import "./state/field";
+@import "./state/label";
+@import "./state/value";
+@import "./state/control";
+@import "./state/triplet";
+@import "./state/is-clickable";

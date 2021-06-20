@@ -2,14 +2,17 @@ import { PureComponent } from 'react'
 import { ReactElement } from 'react'
 import classnames from 'classnames'
 
-import { Investigator } from '../typescript/Investigator'
+import { Investigator } from '../../../typescript/Investigator'
+import { UnidocInvestigatorReducer } from '../../../typescript/unidoc/reducer'
+import { Skill } from '../../../typescript/Skill'
+import { ApplicationEvent } from '../../../typescript/application/ApplicationEvent'
 
-import { SummaryDisplay } from './SummaryDisplay'
+import { SummaryRenderer } from './SummaryRenderer'
 import { CharacteristicSetRenderer } from './CharacteristicSetRenderer'
-import { StatusDisplay } from './StatusDisplay'
-import { AllSkillsDisplay } from './AllSkillsDisplay'
-import { UnidocInvestigatorReducer } from '../typescript/unidoc/reducer'
-import { Skill } from '../typescript/Skill'
+import { StatusRenderer } from './StatusRenderer'
+import { AllSkillsRenderer } from './AllSkillsRenderer'
+
+const HomeImage = require('../../../public/images/logo.svg').default
 
 
 /**
@@ -26,27 +29,35 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
     this.handleSave = this.handleSave.bind(this)
     this.handleSkillSelection = this.handleSkillSelection.bind(this)
     this.handleLevelup = this.handleLevelup.bind(this)
+    this.handleReload = this.handleReload.bind(this)
+  }
+
+  /**
+   * 
+   */
+  public handleReload(): void {
+    this.props.onChange(ApplicationEvent.showLoadingPage())
   }
 
   /**
    * 
    */
   public handleChange(next: Investigator, previous: Investigator): void {
-    this.props.onChange(next, previous)
+    this.props.onChange(ApplicationEvent.use(next))
   }
 
   /**
    * 
    */
   public handleLevelup(): void {
-    this.props.onChange(this.props.value.levelup(), this.props.value)
+    this.props.onChange(ApplicationEvent.use(this.props.investigator.levelup()))
   }
 
   /**
    * 
    */
   public handleSkillSelection(skill: Skill): void {
-    this.props.onChange(this.props.value.toggleForUpdate(skill), this.props.value)
+    this.props.onChange(ApplicationEvent.use(this.props.investigator.toggleForUpdate(skill)))
   }
 
   /**
@@ -55,11 +66,11 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
   public handleSave(): void {
     const now: Date = new Date()
     const href: HTMLAnchorElement = document.createElement('a')
-    href.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(UnidocInvestigatorReducer.reduce(this.props.value)))
+    href.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(UnidocInvestigatorReducer.reduce(this.props.investigator)))
     href.setAttribute(
       'download', 
-      this.props.value.summary.name.first.toLocaleLowerCase() + '-' + 
-      this.props.value.summary.name.last.toLocaleLowerCase() + '-' + 
+      this.props.investigator.summary.name.first.toLocaleLowerCase() + '-' + 
+      this.props.investigator.summary.name.last.toLocaleLowerCase() + '-' + 
       now.getFullYear() + '-' + 
       now.getMonth() + '-' + 
       now.getDay() + '-' + 
@@ -84,12 +95,12 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
    */
   public render () : ReactElement {
     return (
-      <div className={classnames('page page-investigator', this.props.className)}>
-        <div className='layout layout-rotulus'>
+      <div className={classnames('layout layout-page', this.props.className)}>
+        <div className='layout layout-sandwich'>
           <div className='container'>
             <div className='row justify-content-center align-items-center'>
               <div className='col-8 col-md-4 order-md-1 col-lg-3 order-lg-1'>
-                <img className='img-fluid' src='./images/logo.svg' />
+                <HomeImage className='img-fluid' />
               </div>
 
               <div className='col-12 d-block d-md-none'>
@@ -98,7 +109,7 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
 
               <div className='col-12 col-md-8 order-md-1 col-lg-6 order-lg-1'>
                 <div className='row'>
-                  <SummaryDisplay value={this.props.value} />
+                  <SummaryRenderer value={this.props.investigator} />
                 </div>
               </div>
 
@@ -109,7 +120,7 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
               <div className='col-12 col-md-6 order-md-3 col-lg-3 order-lg-1'>
                 <div className='row'>
                   <CharacteristicSetRenderer 
-                    value={this.props.value} 
+                    value={this.props.investigator} 
                     onChange={this.handleChange} 
                   />
                 </div>
@@ -121,8 +132,8 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
 
               <div className='col-12 col-md-6 order-md-3 col-lg order-lg-1'>
                 <div className='row'>
-                  <StatusDisplay 
-                    value={this.props.value} 
+                  <StatusRenderer 
+                    value={this.props.investigator} 
                     onChange={this.handleChange} 
                   />
                 </div>
@@ -134,8 +145,8 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
 
               <div className='col-12 order-md-3 order-lg-1'>
                 <div className='row'>
-                  <AllSkillsDisplay 
-                    value={this.props.value}
+                  <AllSkillsRenderer 
+                    value={this.props.investigator}
                     onSelect={this.handleSkillSelection}
                   />
                 </div>
@@ -154,7 +165,7 @@ export class InvestigatorPage extends PureComponent<InvestigatorPage.Properties>
                   Sauvegarder la fiche
                 </button>
 
-                <button className='btn btn-link btn-block' onClick={this.props.onReload}>
+                <button className='btn btn-link btn-block' onClick={this.handleReload}>
                   Charger une nouvelle fiche
                 </button>
               </div>
@@ -173,6 +184,11 @@ export namespace InvestigatorPage {
   /**
    * 
    */
+  export type ApplicationCallback = (event: ApplicationEvent) => void
+  
+  /**
+   * 
+   */
   export type Properties = {
     /**
      * 
@@ -182,16 +198,11 @@ export namespace InvestigatorPage {
     /**
      * 
      */
-    onReload?: () => void,
+    onChange?: ApplicationCallback,
 
     /**
      * 
      */
-    onChange?: (next: Investigator, previous: Investigator) => void,
-
-    /**
-     * 
-     */
-    value: Investigator
+    investigator: Investigator
   }
 }

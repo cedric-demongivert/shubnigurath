@@ -1,0 +1,11 @@
+@use '../variables' as variables;
+
+a,
+a:hover {
+  text-decoration: none;
+  color: variables.$link-color;
+
+  &:target {
+    color: #ff7e00;
+  }
+}

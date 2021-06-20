@@ -12,15 +12,22 @@
   margin: 0px;
   border: none;
 
-  & > * {
+  & > .layout-collection-item {
     flex-shrink: 0;
     flex-grow: 0;
   }
 
-  &.layout-collection-row {
+  &.is-row {
     flex-flow: row nowrap;
 
     width: auto;
     height: 100%;
+  }
+
+  &.is-column {
+    flex-flow: column nowrap;
+
+    width: 100%;
+    height: auto;
   }
 }

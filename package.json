@@ -12,6 +12,7 @@
     "@babel/core": "^7.14.5",
     "@cedric-demongivert/gl-tool-collection": "^0.24.2",
     "@cedric-demongivert/unidoc": "^0.3.0",
+    "@svgr/webpack": "^5.5.0",
     "@types/react-redux": "^7.1.15",
     "classnames": "^2.2.6",
     "clipboard-copy": "^4.0.1",

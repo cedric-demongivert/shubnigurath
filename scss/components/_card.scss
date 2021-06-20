@@ -1,3 +1,5 @@
+@use '../variables' as variables;
+
 .card {
-  background-color: $page-color;
+  background-color: variables.$page-color;
 }

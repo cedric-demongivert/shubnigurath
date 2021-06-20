@@ -1,0 +1,17 @@
+@use '../mixin' as application;
+
+p {
+  display: block;
+
+  padding: 0px;
+  margin: 0px;
+  border: none;
+
+  box-sizing: border-box;
+
+  width: auto;
+  height: auto;
+
+  font-size: 1em;
+  @include application.content-spacing;
+}

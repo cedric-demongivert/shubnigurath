@@ -1,0 +1,125 @@
+\name { 
+  \first { Anastasia } 
+  \last { Janowska }
+}
+
+\alias { Shelley }
+
+\job { Écrivain }
+
+\matricule { 07.07.07 }
+
+\gender { female }
+
+\age { 37 }
+
+\birthdate { 1885-11-06 }
+
+\hiringdate { 1923-06-11 }
+
+\birthplace {
+  \city { Varsovie }
+  \country { Pologne }
+}
+
+\home {
+  \city { Montréal }
+  \state { Québec }
+  \country { Canada }
+  \district { Notre Dame de Grâce }
+  \street { Avenue Normont }
+}
+
+\characteristics {
+  \appearance {
+    \base { 70 }
+  }
+
+  \constitution {
+    \base { 40 }
+  }
+
+  \dexterity {
+    \base { 40 }
+  }
+  
+  \education {
+    \base { 70 }
+  }
+
+  \intelligence {
+    \base { 70 }
+  }
+
+  \power {
+    \base { 60 }
+  }
+
+  \size {
+    \base { 40 }
+  }
+
+  \strength {
+    \base { 40 }
+  }
+
+  \luck {
+    \base { 30 }
+  }
+}
+
+\skills {
+  \skill {
+    \family { Français }
+    \base { 1 }
+    \modifier { 49 Expérience (Écrivain) }
+  }
+
+  \skill {
+    \family { Anglais }
+    \base { 1 }
+    \modifier { 49 Expérience (Écrivain) }
+  }
+
+  \skill {
+    \family { Crédit }
+    \modifier { 60 Expérience (Écrivain) }
+  }
+
+  \skill {
+    \family { Littérature }
+    \base { 1 }
+    \modifier { 59 Expérience (Écrivain) }
+  }
+
+  \skill {
+    \family { Psychologie }
+    \modifier { 60 Expérience (Écrivain) }
+  }
+
+  \skill {
+    \family { Psychanalyse }
+    \modifier { 69 Expérience (Écrivain) }
+  }
+
+  \skill {
+    \family { Occultisme }
+    \modifier { 15 Expérience (Écrivain) }
+    \modifier { 25 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Conduite }
+    \modifier { 50 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Crochetage }
+    \modifier { 59 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Trouver objet caché }
+    \modifier { 25 Expérience (Personnelle) }
+  }
+}

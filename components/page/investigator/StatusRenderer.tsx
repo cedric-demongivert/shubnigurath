@@ -1,28 +1,28 @@
 import { PureComponent } from 'react'
 import { ReactElement } from 'react'
 
-import { Label } from './Label'
-import { MovementRenderer } from './MovementRenderer'
-import { BooleanField } from './form/BooleanField'
-import { CopyField } from './CopyField'
+import { Investigator } from '../../../typescript/Investigator'
+import { CharacteristicSet } from '../../../typescript/CharacteristicSet'
+import { Empty } from '../../../typescript/utils'
+import { Mutables } from '../../../typescript/Mutables'
+import { DataEvent, DataReducer } from '../../../typescript/redux'
 
-import { Investigator } from '../typescript/Investigator'
-import { CharacteristicSet } from '../typescript/CharacteristicSet'
-import { ControlEvent } from '../typescript/redux/ControlEvent'
-import { FieldReducer } from '../typescript/redux/FieldReducer'
-import { Empty } from '../typescript/utils'
-import { Mutables } from '../typescript/Mutables'
-import { BoundStatisticField } from './form/BoundStatisticField'
-import { DataEvent, DataReducer } from '../typescript/redux'
+import { Label } from '../../Label'
+import { BooleanField } from '../../form/BooleanField'
+import { BoundStatisticField } from '../../form/BoundStatisticField'
+
+import { CopyField } from './CopyField'
+import { MovementRenderer } from './MovementRenderer'
+
 
 /**
  * 
  */
-export class StatusDisplay extends PureComponent<StatusDisplay.Properties> {
+export class StatusRenderer extends PureComponent<StatusRenderer.Properties> {
   /**
    * 
    */
-  public static defaultProps: StatusDisplay.OptionalProperties = {
+  public static defaultProps: StatusRenderer.OptionalProperties = {
     /**
      * 
      */
@@ -32,7 +32,7 @@ export class StatusDisplay extends PureComponent<StatusDisplay.Properties> {
   /**
    * 
    */
-  public constructor(properties: StatusDisplay.Properties) {
+  public constructor(properties: StatusRenderer.Properties) {
     super(properties)
     
     this.handleTemporaryInsaneChange = this.handleTemporaryInsaneChange.bind(this)
@@ -206,7 +206,7 @@ export class StatusDisplay extends PureComponent<StatusDisplay.Properties> {
 /**
  * 
  */
-export namespace StatusDisplay {
+export namespace StatusRenderer {
   /**
    * 
    */

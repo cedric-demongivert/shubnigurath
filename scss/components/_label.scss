@@ -1,3 +1,5 @@
+@use '../variables' as variables;
+
 .label {
   display: flex;
   flex-flow: row nowrap;
@@ -26,7 +28,7 @@
     order: 0;
     flex: 0 0 auto;
 
-    color: $label-color;
+    color: variables.$label-color;
 
     font-size: 0.75em;
     font-family: "Vesper Libre", serif;
@@ -42,7 +44,7 @@
     padding: 0;
 
     border: none;
-    border-top: 2px dotted $label-color;
+    border-top: 2px dotted variables.$label-color;
 
     order: 1;
     flex: 1 1 auto;
@@ -58,7 +60,7 @@
     padding: 0;
     border: none;
 
-    background-color: $label-color;
+    background-color: variables.$label-color;
     border-radius: 100%;
 
     order: 2;

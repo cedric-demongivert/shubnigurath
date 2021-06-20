@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react'
 import classnames from 'classnames'
 
-import { Value } from '../typescript/Value'
-import { Triplet } from './layout/Triplet'
+import { Value } from '../../../typescript/Value'
+import { Triplet } from '../../layout/Triplet'
 
 
 /**

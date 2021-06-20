@@ -1,0 +1,132 @@
+\name { 
+  \first { Paul (Edward) } 
+  \last { Tsao }
+}
+
+\alias { Morphée }
+
+\job { Professeur }
+
+\matricule { 03.03.08 }
+
+\gender { male }
+
+\age { 52 }
+
+\birthdate { 1871-02-12 }
+
+\hiringdate { 1923-06-22 }
+
+\birthplace {
+  \city { Ottawa }
+  \state { Ontario }
+  \country { Canada }
+}
+
+\home {
+  \city { Montréal }
+  \state { Québec }
+  \country { Canada }
+  \district { St. George }
+  \street { Rue de l'université }
+}
+
+\characteristics {
+  \appearance {
+    \base { 40 }
+    \modifier { -10 Vieillissement (50+) }
+  }
+
+  \constitution {
+    \base { 50 }
+    \modifier { -3 Vieillissement (50+) }
+  }
+
+  \dexterity {
+    \base { 40 }
+    \modifier { -3 Vieillissement (50+) }
+  }
+  
+  \education {
+    \base { 89 }
+    \modifier { +9 Vieillissement (50+) }
+  }
+
+  \intelligence {
+    \base { 60 }
+  }
+
+  \power {
+    \base { 50 }
+  }
+
+  \size {
+    \base { 40 }
+  }
+
+  \strength {
+    \base { 40 }
+    \modifier { -4 Vieillissement (50+) }
+  }
+
+  \luck {
+    \base { 60 }
+  }
+}
+
+\skills {
+  \skill {
+    \family { Mandarin }
+    \base { 1 }
+    \modifier { 59 Expérience (Professeur) }
+  }
+
+  \skill {
+    \family { Français }
+    \base { 1 }
+    \modifier { 59 Expérience (Professeur) }
+  }
+
+  \skill {
+    \family { Latin } 
+    \base { 1 }
+    \modifier { 49 Expérience (Professeur) }
+  }
+
+  \skill {
+    \family { Bibliothèque }
+    \modifier { 50 Expérience (Professeur) }
+  }
+
+  \skill {
+    \family { Biologie }
+    \base { 1 }
+    \modifier { 59 Expérience (Professeur) }
+  }
+
+  \skill {
+    \family { Chimie }
+    \base { 1 }
+    \modifier { 69 Expérience (Professeur) }
+  }
+
+  \skill {
+    \family { Crédit }
+    \modifier { 40 Expérience (Professeur) }
+  }
+
+  \skill {
+    \family { Trouver objet caché }
+    \modifier { 5 Expérience (Professeur) }
+  }
+
+  \skill {
+    \family { Médecine }
+    \modifier { 69 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Persuasion }
+    \modifier { 60 Expérience (Personnelle) }
+  }
+}

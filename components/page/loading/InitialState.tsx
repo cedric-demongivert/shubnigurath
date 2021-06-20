@@ -1,6 +1,9 @@
 import React from 'react'
 import classnames from 'classnames'
-import { Empty } from '../../../typescript/utils'
+
+import { Empty } from '../../../typescript/utils/Empty'
+
+const HomeImage = require('../../../public/images/logo.svg').default
 
 /**
  * 
@@ -64,7 +67,7 @@ export class InitialState extends React.PureComponent<InitialState.Properties> {
 
     if (dragged.files.length > 0) {
       for (const file of dragged.files) {
-        if (file.name.endsWith('.sheet.unidoc')) {
+        if (file.name.endsWith('.txt')) {
           this.props.onSelection(file)
           break
         }
@@ -98,32 +101,30 @@ export class InitialState extends React.PureComponent<InitialState.Properties> {
         onDragEnter={this.handleSilentAction}
         onDragOver={this.handleSilentAction}
         onClick={this.handlePageClick} 
-        className={classnames('page page-loading is-clickable', this.props.className)}
+        className={classnames('layout layout-centered is-clickable', this.props.className)}
       >
-        <div className='layout layout-centered'>
-          <div className='container-fluid'>
-            <div className='row justify-content-center align-items-center'>
-              <div className='col-10 col-md-8 col-lg-6 col-xl-6 text-center'>
-                <img className='img-fluid' src='./images/logo.svg' />
-              </div>
+        <div className='container-fluid'>
+          <div className='row justify-content-center align-items-center'>
+            <div className='col-10 col-md-8 col-lg-6 col-xl-6 text-center'>
+              <HomeImage className='img-fluid' />
             </div>
-            <div className='row justify-content-center align-items-center'>
-              <div className='col-10 col-md-8 col-lg-6 col-xl-6 text-center'>
-                <br/>
-                <br/>
-                <br/>
-                Déposez une feuille de personnage ou cliquez pour en choisir une.
-                <input 
-                  onChange={this.handleInputChange}
-                  ref={this._input} 
-                  type='file' 
-                  accept='.sheet.unidoc,.unidoc,text/plain' 
-                  style={{ display: 'none' }}
-                />
-                { this.props.cancellable ? <br/> : null }
-                { this.props.cancellable ? <br/> : null }
-                { this.props.cancellable ? <button className='btn btn-link btn-block' onClick={this.handleCancel}>Annuler</button> : null }
-              </div>
+          </div>
+          <div className='row justify-content-center align-items-center'>
+            <div className='col-10 col-md-8 col-lg-6 col-xl-6 text-center'>
+              <br/>
+              <br/>
+              <br/>
+              Déposez une feuille de personnage ou cliquez pour en choisir une.
+              <input 
+                onChange={this.handleInputChange}
+                ref={this._input} 
+                type='file' 
+                accept='.sheet.unidoc,.unidoc,text/plain' 
+                style={{ display: 'none' }}
+              />
+              { this.props.cancellable ? <br/> : null }
+              { this.props.cancellable ? <br/> : null }
+              { this.props.cancellable ? <button className='btn btn-link btn-block' onClick={this.handleCancel}>Annuler</button> : null }
             </div>
           </div>
         </div>

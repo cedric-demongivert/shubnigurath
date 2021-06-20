@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Triplet } from './layout/Triplet'
+import { Triplet } from '../../layout/Triplet'
 
 /**
  * 

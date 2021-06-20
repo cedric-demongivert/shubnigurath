@@ -1,0 +1,31 @@
+@use '../mixin' as application;
+
+ul {
+  display: block;
+
+  padding: 0px;
+  margin: 0px;
+  border: none;
+
+  box-sizing: border-box;
+
+  width: auto;
+  height: auto;
+
+  @include application.content-spacing;
+
+  li {
+    display: block;
+
+    padding-left: 20px;
+    margin: 0px;
+    border: none;
+
+    box-sizing: border-box;
+
+    width: auto;
+    height: auto;
+
+    list-style: none;
+  }
+}

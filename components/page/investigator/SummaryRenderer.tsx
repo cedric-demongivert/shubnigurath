@@ -1,15 +1,15 @@
-import { Label } from './Label'
+import { Investigator } from '../../../typescript/Investigator'
+import { Gender } from '../../../typescript/Gender'
+import { Summary } from '../../../typescript/Summary'
 
-import { Investigator } from '../typescript/Investigator'
-import { Gender } from '../typescript/Gender'
-import { Summary } from '../typescript/Summary'
+import { Label } from '../../Label'
 
 import { CopyField } from './CopyField'
 
 /**
  * 
  */
-export function SummaryDisplay (properties: SummaryDisplay.Properties) {
+export function SummaryRenderer (properties: SummaryRenderer.Properties) {
   const summary: Summary = properties.value.summary
 
   const name: string = summary.name == null ? 'Non Défini' : summary.name.toString()
@@ -94,7 +94,7 @@ export function SummaryDisplay (properties: SummaryDisplay.Properties) {
 /**
  * 
  */
-export namespace SummaryDisplay {
+export namespace SummaryRenderer {
   /**
    * 
    */

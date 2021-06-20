@@ -20,6 +20,7 @@ import { InitialState } from './InitialState'
 import { LoadingState } from './LoadingState'
 import { ResolvedState } from './ResolvedState'
 import { LoadingPageState } from './LoadingPageState'
+import { ApplicationEvent } from '../../../typescript/application/ApplicationEvent'
 
 /**
  * 
@@ -32,7 +33,7 @@ export class LoadingPage extends React.Component<LoadingPage.Properties, Loading
     /**
      * 
      */
-    onLoad: Empty.callback
+    onChange: Empty.callback
   }
 
   /**
@@ -44,6 +45,7 @@ export class LoadingPage extends React.Component<LoadingPage.Properties, Loading
     this.handleFileSelection = this.handleFileSelection.bind(this)
     this.handleFileValidation = this.handleFileValidation.bind(this)
     this.handleFileReduction = this.handleFileReduction.bind(this)
+    this.handleCancellation = this.handleCancellation.bind(this)
 
     this.state = {
       state: LoadingPageState.INITIAL,
@@ -51,6 +53,13 @@ export class LoadingPage extends React.Component<LoadingPage.Properties, Loading
       source: undefined,
       error: undefined
     }
+  }
+
+  /**
+   * 
+   */
+  private handleCancellation () : void {
+    this.props.onChange(ApplicationEvent.showInvestigatorPage())
   }
 
   /**
@@ -69,7 +78,8 @@ export class LoadingPage extends React.Component<LoadingPage.Properties, Loading
       state: LoadingPageState.RESOLVED
     })
 
-    this.props.onLoad(value)
+    this.props.onChange(ApplicationEvent.use(value))
+    this.props.onChange(ApplicationEvent.showInvestigatorPage())
   }
 
   /**
@@ -120,7 +130,7 @@ export class LoadingPage extends React.Component<LoadingPage.Properties, Loading
   public renderInitialState (): React.ReactElement {
     return <InitialState 
       cancellable={this.props.cancellable} 
-      onCancel={this.props.onCancel} 
+      onCancel={this.handleCancellation} 
       className={this.props.className} 
       onSelection={this.handleFileSelection} 
     />
@@ -148,7 +158,7 @@ export namespace LoadingPage {
   /**
    * 
    */
-  export type LoadCallback = (result: Investigator) => void
+  export type ApplicationCallback = (event: ApplicationEvent) => void
 
   /**
    * 
@@ -167,13 +177,7 @@ export namespace LoadingPage {
     /**
      * 
      */
-    onLoad?: LoadCallback | undefined,
-
-
-    /**
-     * 
-     */
-     onCancel?: () => void | undefined
+    onChange?: ApplicationCallback | undefined
   }
 
   /**
