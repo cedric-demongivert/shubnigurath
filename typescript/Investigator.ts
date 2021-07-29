@@ -351,4 +351,11 @@ export namespace Investigator {
      */
     updates?: SkillSet | undefined
   }
+
+  /**
+   * 
+   */
+  export function compareByName(left: Investigator, right: Investigator): number {
+    return left.summary.name.toString().localeCompare(right.summary.name.toString())
+  }
 }

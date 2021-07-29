@@ -1,0 +1,124 @@
+\name { 
+  \first { Emilio } 
+  \last { Gianni }
+}
+
+\alias { Médicis }
+
+\job { Comptable }
+
+\matricule { 15.06.05 }
+
+\gender { male }
+
+\age { 25 }
+
+\birthdate { 1898-01-12 }
+
+\hiringdate { 1923-06-18 }
+
+\birthplace {
+  \city { Palerme }
+  \country { Italie }
+}
+
+\home {
+  \city { Montréal }
+  \state { Québec }
+  \country { Canada }
+  \district { Laurier }
+  \street { Avenue Henri-Julien }
+}
+
+\characteristics {
+  \appearance {
+    \base { 70 }
+  }
+
+  \constitution {
+    \base { 40 }
+  }
+
+  \dexterity {
+    \base { 60 }
+  }
+  
+  \education {
+    \base { 40 }
+    \modifier { +8 Vieillissement (20+) }
+  }
+
+  \intelligence {
+    \base { 60 }
+  }
+
+  \power {
+    \base { 50 }
+  }
+
+  \size {
+    \base { 40 }
+  }
+
+  \strength {
+    \base { 40 }
+  }
+
+  \luck {
+    \base { 60 }
+  }
+}
+
+\skills {
+  \skill {
+    \family { Français }
+    \base { 1 }
+    \modifier { 29 Expérience (Comptable) }
+  }
+
+  \skill {
+    \family { Anglais }
+    \base { 1 }
+    \modifier { 49 Expérience (Comptable) }
+  }
+
+  \skill {
+    \family { Crédit }
+    \modifier { 20 Expérience (Comptable) }
+  }
+
+  \skill {
+    \family { Crochetage }
+    \modifier { 59 Expérience (Comptable) }
+  }
+
+  \skill {
+    \family { Comptabilité }
+    \modifier { 55 Expérience (Comptable) }
+  }
+
+  \skill {
+    \family { Estimation }
+    \modifier { 45 Expérience (Comptable) }
+  }
+
+  \skill {
+    \family { Discrétion }
+    \modifier { 40 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Esquive }
+    \modifier { 15 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Charme }
+    \modifier { 35 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Corps à corps }
+    \modifier { 35 Expérience (Personnelle) }
+  }
+}

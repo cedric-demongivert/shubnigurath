@@ -11,9 +11,13 @@
   "dependencies": {
     "@babel/core": "^7.14.5",
     "@cedric-demongivert/gl-tool-collection": "^0.24.2",
-    "@cedric-demongivert/unidoc": "^0.3.0",
+    "@cedric-demongivert/unidoc": "^0.4.2",
     "@svgr/webpack": "^5.5.0",
+    "@types/classnames": "^2.3.1",
+    "@types/hammerjs": "^2.0.40",
+    "@types/react-hammerjs": "^1.0.2",
     "@types/react-redux": "^7.1.15",
+    "bootstrap": "^5.0.2",
     "classnames": "^2.2.6",
     "clipboard-copy": "^4.0.1",
     "immutable": "^4.0.0-rc.12",
@@ -32,7 +36,9 @@
     "@babel/plugin-proposal-decorators": "^7.13.15",
     "@types/node": "^14.0.13",
     "@types/react": "^16.9.36",
+    "file-loader": "^6.2.0",
     "raw-loader": "^4.0.2",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "url-loader": "^4.1.1"
   }
 }

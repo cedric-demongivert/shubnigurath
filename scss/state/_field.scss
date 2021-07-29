@@ -1,6 +1,8 @@
+@use '../variables' as variables;
+
 .field:focus,
 .field.is-focus,
 .field:hover {
   outline: none;
-  color: $focus-color;
+  color: variables.$focus-color;
 }

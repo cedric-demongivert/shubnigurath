@@ -1,3 +1,4 @@
+import { UnidocValidationEvent } from '@cedric-demongivert/unidoc'
 import { UnidocValidator } from '@cedric-demongivert/unidoc'
 import { UnidocProducerEvent } from '@cedric-demongivert/unidoc'
 import { UnidocReducer } from '@cedric-demongivert/unidoc'
@@ -12,23 +13,20 @@ import { Investigator } from '../Investigator'
 export function readInvestigator(unidoc: string): Promise<Investigator> {
   return new Promise(function (resolve, reject) {
     const reader: Reader = new Reader()
-
-    const validator: UnidocValidator = UnidocValidator.kiss(
-      UnidocCommand.validateUnidoc.factory(
-        InvestigatorCommand.validate
-      )
+    const validator: UnidocProducer<UnidocValidationEvent> = UnidocValidator.kiss(
+      reader.output,
+      UnidocCommand.validateUnidoc.factory(InvestigatorCommand.validate)
     )
 
-    validator.subscribe(reader.output)
-    //validator.addEventListener(UnidocProducerEvent.PRODUCTION, x => console.log(x.toString()))
+    //validator.on('next', x => console.log(x.toString()))
 
     const parser: UnidocProducer<Investigator> = UnidocReducer.reduce.validation(
       validator,
       () => UnidocCommand.reduce(InvestigatorCommand.reduce())
     )
 
-    parser.addEventListener(UnidocProducerEvent.FAILURE, reject)
-    parser.addEventListener(UnidocProducerEvent.PRODUCTION, resolve)
+    parser.on('failure', reject)
+    parser.on('next', resolve)
 
     reader.read(unidoc)
   })

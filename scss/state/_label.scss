@@ -1,10 +1,12 @@
+@use '../variables' as variables;
+
 .label.is-focus,
 .label:focus,
 .is-focus .label,
 .field:focus .label,
 .field:hover .label {
   .label-value {
-    color: $focus-color;
+    color: variables.$focus-color;
   }
 
   .label-filler {
@@ -16,13 +18,13 @@
 
     padding: 0;
 
-    border-color: $focus-color;
+    border-color: variables.$focus-color;
 
     order: 1;
     flex: 1 1 auto;
   }
 
   .label-ending {
-    background-color: $focus-color;
+    background-color: variables.$focus-color;
   }
 }

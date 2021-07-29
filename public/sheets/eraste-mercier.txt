@@ -1,0 +1,131 @@
+\name { 
+  \first { Eraste } 
+  \last { Mercier }
+}
+
+\alias { Willard }
+
+\job { Boxeur }
+
+\matricule { 09.04.01 }
+
+\gender { male }
+
+\age { 31 }
+
+\birthdate { 1891-08-23 }
+
+\hiringdate { 1923-06-22 }
+
+\birthplace {
+  \city { Trois-Rivières }
+  \state { Québec }
+  \country { Canada }
+}
+
+\home {
+  \city { Montréal }
+  \state { Québec }
+  \country { Canada }
+  \district { St-George }
+  \street { Rue Latour }
+}
+
+\characteristics {
+  \appearance {
+    \base { 40 }
+  }
+
+  \constitution {
+    \base { 70 }
+  }
+
+  \dexterity {
+    \base { 60 }
+  }
+  
+  \education {
+    \base { 30 }
+    \modifier { +5 Vieillissement (20+) }
+  }
+
+  \intelligence {
+    \base { 40 }
+  }
+
+  \power {
+    \base { 40 }
+  }
+
+  \size {
+    \base { 50 }
+  }
+
+  \strength {
+    \base { 80 }
+  }
+
+  \luck {
+    \base { 50 }
+  }
+}
+
+\skills {
+  \skill {
+    \family { Anglais }
+    \base { 1 }
+    \modifier { 29 Expérience (Boxeur) }
+  }
+
+  \skill {
+    \family { Crédit }
+    \modifier { 20 Expérience (Boxeur) }
+  }
+
+  \skill {
+    \family { Corps à corps }
+    \modifier { 50 Expérience (Boxeur) }
+  }
+
+  \skill {
+    \family { Esquive }
+    \modifier { 45 Expérience (Boxeur) }
+  }
+
+  \skill {
+    \family { Intimidation }
+    \modifier { 55 Expérience (Boxeur) }
+  }
+
+  \skill {
+    \family { Sauter }
+    \modifier { 40 Expérience (Boxeur) }
+  }
+
+  \skill {
+    \family { Lancer }
+    \modifier { 30 Expérience (Boxeur) }
+  }
+
+  \skill {
+    \family { Psyhcologie }
+    \modifier { 30 Expérience (Boxeur) }
+  }
+
+  \skill {
+    \family { Grimper }
+    \modifier { 40 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Trouver objet caché }
+    \modifier { 25 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Conduite }
+    \modifier { 10 Expérience (Personnelle) }
+    \modifier { 15 Expérience (Personnelle) }
+  }
+
+}

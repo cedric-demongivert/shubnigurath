@@ -114,8 +114,13 @@
   }
 
   \skill {
-    \family { Crochetage }
-    \modifier { 59 Expérience (Personnelle) }
+    \family { Méchanique }
+    \modifier { 30 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Premiers soins }
+    \modifier { 30 Expérience (Personnelle) }
   }
 
   \skill {

@@ -1,8 +1,10 @@
+@use '../variables' as variables;
+
 .field:focus .value,
 .field:hover .value,
 .field.is-focus .value {
   &,
   * {
-    color: $focus-color;
+    color: variables.$focus-color;
   }
 }

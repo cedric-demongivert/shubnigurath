@@ -1,5 +1,5 @@
-@use '../variables' as variables;
-@use '../mixin' as application;
+@use '../variables';
+@use '../mixin';
 
 body,
 html {
@@ -22,5 +22,5 @@ html {
   font-family: "Vesper Libre", serif;
   color: variables.$text-color;
 
-  @include application.font-size;
+  @include mixin.font-size;
 }

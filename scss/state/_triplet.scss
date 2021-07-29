@@ -1,8 +1,10 @@
+@use '../variables' as variables;
+
 .field:focus .layout.layout-triplet,
 .field:hover .layout.layout-triplet,
 .field.is-focus .layout.layout-triplet {
   &,
   * {
-    color: $focus-color;
+    color: variables.$focus-color;
   }
 }

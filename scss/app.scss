@@ -7,17 +7,8 @@
 @use "./base";
 @use "./layout";
 @use "./components";
+@use "./state";
+@use "./theme";
 
 @import url("https://fonts.googleapis.com/css?family=Vesper+Libre&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Alegreya+SC&display=swap");
-
-@import "./variables";
-
-@import "./theme/checkbox";
-
-@import "./state/field";
-@import "./state/label";
-@import "./state/value";
-@import "./state/control";
-@import "./state/triplet";
-@import "./state/is-clickable";

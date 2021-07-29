@@ -1,8 +1,10 @@
+@use '../variables' as variables;
+
 .field:focus .control,
 .field:hover .control,
 .field.is-focus .control {
   &.control-value * {
-    color: $focus-color;
+    color: variables.$focus-color;
   }
 
   &.control-boolean * {

@@ -1,0 +1,130 @@
+\name { 
+  \first { Jill } 
+  \last { Everett }
+}
+
+\alias { Nitassinan }
+
+\job { Chasseuse }
+
+\matricule { 05.09.09 }
+
+\gender { female }
+
+\age { 33 }
+
+\birthdate { 1889-11-22 }
+
+\hiringdate { 1923-06-03 }
+
+\birthplace {
+  \city { Rawdon }
+  \state { Québec }
+  \country { Canada }
+}
+
+\home {
+  \city { Montréal }
+  \state { Québec }
+  \country { Canada }
+  \district { Mercier Maisonneuve }
+  \street { Rue Tangay }
+}
+
+\characteristics {
+  \appearance {
+    \base { 50 }
+  }
+
+  \constitution {
+    \base { 50 }
+  }
+
+  \dexterity {
+    \base { 60 }
+  }
+  
+  \education {
+    \base { 45 }
+    \modifier { +5 Vieillissement (20+) }
+  }
+
+  \intelligence {
+    \base { 50 }
+  }
+
+  \power {
+    \base { 70 }
+  }
+
+  \size {
+    \base { 40 }
+  }
+
+  \strength {
+    \base { 60 }
+  }
+
+  \luck {
+    \base { 40 }
+  }
+}
+
+\skills {
+  \skill {
+    \family { Anglais }
+    \base { 1 }
+    \modifier { 29 Expérience (Chasseuse) }
+  }
+
+  \skill {
+    \family { Innu }
+    \base { 1 }
+    \modifier { 29 Expérience (Chasseuse) }
+  }
+
+  \skill {
+    \family { Crédit }
+    \modifier { 30 Expérience (Chasseuse) }
+  }
+
+  \skill {
+    \family { Survie }
+    \modifier { 40 Expérience (Chasseuse) }
+  }
+
+  \skill {
+    \family { Pister }
+    \modifier { 50 Expérience (Chasseuse) }
+  }
+
+  \skill {
+    \family { Grimper }
+    \modifier { 40 Expérience (Chasseuse) }
+  }
+
+  \skill {
+    \family { Orientation }
+    \modifier { 40 Expérience (Chasseuse) }
+  }
+
+  \skill {
+    \family { Naturalisme }
+    \modifier { 40 Expérience (Chasseuse) }
+  }
+
+  \skill {
+    \family { Fusils }
+    \modifier { 60 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Discrétion }
+    \modifier { 40 Expérience (Personnelle) }
+  }
+
+  \skill {
+    \family { Équitation }
+    \modifier { 40 Expérience (Personnelle) }
+  }
+}

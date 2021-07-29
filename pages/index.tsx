@@ -19,7 +19,7 @@ export default function index (properties : index.Properties) : ReactElement {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
 
-      <LoadingPage cancellable={properties.investigator != null} {...properties} />
+      <LoadingPage current={properties.investigator} {...properties} />
     </VanillaLayout>
   )
 }

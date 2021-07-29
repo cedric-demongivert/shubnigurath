@@ -1,0 +1,216 @@
+@use '../../../node_modules/bootstrap/scss/bootstrap' as bootstrap;
+@use "sass:map";
+@use "sass:math";
+
+$loading-option-height: 100px;
+$loading-option-font-size: (
+  "xs": 1em,
+  "sm": 1em,
+  "md": 1em,
+  "lg": 1em,
+  "xl": 1em
+);
+
+$loading-option-width: (
+  "xs": 100%,
+  "sm": 350px,
+  "md": 400px,
+  "lg": 400px,
+  "xl": 600px
+);
+
+.layout.layout-loading-page {
+  position: relative;
+  display: block;
+
+  left: 0px;
+  top: 0px;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0px;
+  margin: 0px;
+  border: none;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  .loading-maturin {
+    width: 800px;
+
+    @include bootstrap.media-breakpoint-up(sm) {
+      width: 800px;
+    }
+
+    @include bootstrap.media-breakpoint-up(md) {
+      width: 1200px;
+    }
+
+    @include bootstrap.media-breakpoint-up(lg) {
+      width: 1200px;
+    }
+  }
+
+  .layout-loading-page-options {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0px;
+    padding-top: 50vh;
+    padding-bottom: 50vh;
+    margin: 0px;
+    border: none;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .loading-option {
+      @extend .btn;
+
+      position: relative;
+
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: start;
+      align-items: start;
+      align-content: start;
+
+      width: map-get($loading-option-width, "xs");
+
+      @include bootstrap.media-breakpoint-up(sm) {
+        width: map-get($loading-option-width, "sm");
+      }
+
+      @include bootstrap.media-breakpoint-up(md) {
+        width: map-get($loading-option-width, "md");
+      }
+
+      @include bootstrap.media-breakpoint-up(lg) {
+        width: map-get($loading-option-width, "lg");
+      }
+
+      height: $loading-option-height;
+
+      padding: 0px;
+      margin: 0px;
+      border: none;
+      border-radius: 0px;
+
+      overflow: hidden;
+
+      font-size: map.get($loading-option-font-size, "xs");
+
+      @each $breakpoint in ("sm", "md", "lg", "xl") {
+        @include bootstrap.media-breakpoint-up($breakpoint) {
+          font-size: map.get($loading-option-font-size, $breakpoint);
+        }
+      }
+
+      &.is-active,
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+
+      &:first-child {
+        margin-top: -(math.div($loading-option-height, 2));
+      }
+
+      &:last-child {
+        margin-bottom: -(math.div($loading-option-height, 2));
+      }
+
+      .loading-option-icon {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        flex-basis: $loading-option-height;
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        height: $loading-option-height;
+
+        font-size: 4em;
+      }
+
+      .loading-option-information {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        align-content: start;
+
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        height: $loading-option-height;
+
+        & > * + * {
+          margin-bottom: 0.25em;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          width: 100%;
+          text-align: left;
+          margin: 0px;
+        }
+
+        h1 {
+          font-size: 1.5em;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+
+  .layout-loading-page-display {
+    display: block;
+    position: absolute;
+
+    top: 0px;
+    right: 0px;
+    left: map-get($loading-option-width, "xs");
+
+    width: auto;
+    height: 100%;
+
+    padding: 0px;
+    margin: 0px;
+    border: none;
+
+    z-index: -1;
+
+    @include bootstrap.media-breakpoint-up(sm) {
+      left: map-get($loading-option-width, "sm");
+    }
+
+    @include bootstrap.media-breakpoint-up(md) {
+      left: map-get($loading-option-width, "md");
+    }
+
+    @include bootstrap.media-breakpoint-up(lg) {
+      left: map-get($loading-option-width, "lg");
+    }
+  }
+}

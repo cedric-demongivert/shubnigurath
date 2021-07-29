@@ -1,0 +1,98 @@
+@use '../../../node_modules/bootstrap/scss/bootstrap' as bootstrap;
+
+.sprite {
+  display: inline-block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0px;
+  padding: 0px;
+
+  border: none;
+
+  &.sprite-folder {
+    background-image: url("../../public/images/files.png");
+    background-size: 300% auto;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+
+    &.sprite-variation-1 {
+      background-position: 50% 0;
+    }
+
+    &.sprite-variation-2 {
+      background-position: 100% 0;
+    }
+  }
+
+  @mixin sprite-character($size) {
+    &.sprite-character {
+      background-image: url("../../public/images/characters-#{$size}.png");
+      background-size: $size * 5px $size * 2px;
+      background-position: 0 0;
+      background-repeat: no-repeat;
+
+      width: $size * 1px;
+      height: $size * 1px;
+
+      &.sprite-variation-bourbon {
+        background-position: 0px 0px;
+      }
+
+      &.sprite-variation-derringer {
+        background-position: -$size * 1px 0px;
+      }
+
+      &.sprite-variation-medicis {
+        background-position: -$size * 2px 0px;
+      }
+
+      &.sprite-variation-morphee {
+        background-position: -$size * 3px 0px;
+      }
+
+      &.sprite-variation-nitassinan {
+        background-position: -$size * 4px 0px;
+      }
+
+      &.sprite-variation-poe {
+        background-position: 0px (-$size * 1px);
+      }
+
+      &.sprite-variation-rosette {
+        background-position: -$size * 1px (-$size * 1px);
+      }
+
+      &.sprite-variation-shelley {
+        background-position: -$size * 2px (-$size * 1px);
+      }
+
+      &.sprite-variation-sirop {
+        background-position: -$size * 3px (-$size * 1px);
+      }
+
+      &.sprite-variation-willard {
+        background-position: -$size * 4px (-$size * 1px);
+      }
+    }
+  }
+
+  @include sprite-character(1024);
+
+  &.sprite-variation-morphee {
+    margin-top: -90px;
+  }
+
+  &.sprite-variation-bourbon {
+    margin-top: -40px;
+  }
+
+  &.sprite-variation-nitassinan {
+    margin-top: -140px;
+  }
+
+  &.sprite-variation-derringer {
+    margin-top: -90px;
+  }
+}

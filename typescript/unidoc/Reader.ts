@@ -1,4 +1,4 @@
-import { UnidocStream } from '@cedric-demongivert/unidoc'
+import { UnidocContext } from '@cedric-demongivert/unidoc'
 import { UnidocProducer } from '@cedric-demongivert/unidoc'
 import { UnidocEvent } from '@cedric-demongivert/unidoc'
 import { fullyParse } from '@cedric-demongivert/unidoc'
@@ -9,7 +9,7 @@ export class Reader {
   /**
   *
   */
-  private readonly _stream: UnidocStream
+  private readonly _stream: UnidocContext
 
   /**
    * 
@@ -26,7 +26,7 @@ export class Reader {
   */
   public constructor() {
     this._resolver = new UnidocFragmentResolver()
-    this._stream = new UnidocStream(this._resolver)
+    this._stream = new UnidocContext(this._resolver)
     this.output = fullyParse(this._stream)
   }
 

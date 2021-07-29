@@ -1,4 +1,4 @@
-import { ListenableUnidocProducer } from '@cedric-demongivert/unidoc'
+import { UnidocPublisher } from '@cedric-demongivert/unidoc'
 import { UnidocSymbol } from '@cedric-demongivert/unidoc'
 import { UnidocLocationTracker } from '@cedric-demongivert/unidoc'
 import { UnidocOrigin } from '@cedric-demongivert/unidoc'
@@ -6,7 +6,7 @@ import { UnidocOrigin } from '@cedric-demongivert/unidoc'
 /**
  * 
  */
-export class UnidocFileSymbolProducer extends ListenableUnidocProducer<UnidocSymbol> {
+export class UnidocFileSymbolProducer extends UnidocPublisher<UnidocSymbol> {
   /**
    * 
    */
@@ -58,7 +58,7 @@ export class UnidocFileSymbolProducer extends ListenableUnidocProducer<UnidocSym
       for (let index = 0; index < size; ++index) {
         const nextCodePoint: number = content.codePointAt(index)
 
-        this._symbol.symbol = nextCodePoint
+        this._symbol.code = nextCodePoint
         this._symbol.origin.clear()
         this._symbol.origin.from.text(this._location.location).concat(this.origin)
 
@@ -66,7 +66,7 @@ export class UnidocFileSymbolProducer extends ListenableUnidocProducer<UnidocSym
 
         this._symbol.origin.to.text(this._location.location).concat(this.origin)
 
-        this.produce(this._symbol)
+        this.output.next(this._symbol)
       }
     }
   }
@@ -75,7 +75,7 @@ export class UnidocFileSymbolProducer extends ListenableUnidocProducer<UnidocSym
    * 
    */
   private handleLoadingTermination(event: ProgressEvent<FileReader>): void {
-    this.complete()
+    this.output.success()
   }
 
   /**

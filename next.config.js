@@ -4,7 +4,7 @@ module.exports = {
   webpack: (config) => {
     config.module.rules.push(
       {
-        test: /\.unidoc$/,
+        test: /\.txt$/,
         use: 'raw-loader'
       }
     )
@@ -16,6 +16,11 @@ module.exports = {
       },
       use: '@svgr/webpack'
     })
+
+    // config.module.rules.push({
+    //  test: /\.(png|jpe?g|gif)$/i,
+    //  use: 'url-loader'
+    // },)
 
     return config
   }
