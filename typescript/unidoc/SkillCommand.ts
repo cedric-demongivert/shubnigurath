@@ -42,7 +42,7 @@ export namespace SkillCommand {
     let family: string = 'none'
     let specialization: string | undefined = undefined
     let base: number | undefined = undefined
-    let modifiers: List<Modifier> = List().asMutable()
+    let modifiers: List<Modifier> = List<Modifier>().asMutable()
 
     yield* UnidocReducer.skipStart()
     yield* UnidocReducer.skipWhitespaces()

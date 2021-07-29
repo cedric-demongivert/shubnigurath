@@ -45,7 +45,7 @@ export class SkillSet {
    * 
    */
   public static create(entries: Iterable<Pair<Skill, Value>>): SkillSet {
-    const result: List<Pair<Skill, Value>> = List().asMutable()
+    const result: List<Pair<Skill, Value>> = List<Pair<Skill, Value>>().asMutable()
 
     for (const entry of entries) {
       result.push(entry)
@@ -120,7 +120,7 @@ export class SkillSet {
    * 
    */
   public minus(other: SkillSet): SkillSet {
-    const result: List<Pair<Skill, Value>> = List().asMutable()
+    const result: List<Pair<Skill, Value>> = List<Pair<Skill, Value>>().asMutable()
 
     let ourCursor: number = 0
     let otherCursor: number = 0
@@ -151,7 +151,7 @@ export class SkillSet {
    * 
    */
   public assign(other: SkillSet): SkillSet {
-    const result: List<Pair<Skill, Value>> = List().asMutable()
+    const result: List<Pair<Skill, Value>> = List<Pair<Skill, Value>>().asMutable()
 
     let ourCursor: number = 0
     let otherCursor: number = 0
@@ -189,7 +189,7 @@ export class SkillSet {
    * 
    */
   public inherit(other: SkillSet): SkillSet {
-    const result: List<Pair<Skill, Value>> = List().asMutable()
+    const result: List<Pair<Skill, Value>> = List<Pair<Skill, Value>>().asMutable()
 
     let ourCursor: number = 0
     let otherCursor: number = 0

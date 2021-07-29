@@ -255,7 +255,7 @@ export class Investigator {
     if (this.updates.entries.size > 0) {
       const oldSkills: List<Pair<Skill, Value>> = this.skills.entries
       const skillsToUpdate: List<Pair<Skill, Value>> = this.updates.entries
-      const nextSkills: List<Pair<Skill, Value>> = List().asMutable()
+      const nextSkills: List<Pair<Skill, Value>> = List<Pair<Skill, Value>>().asMutable()
       const defaultSkills: SkillSet = this.computeDefaultSkills()
 
       let skillsIndex: number = 0

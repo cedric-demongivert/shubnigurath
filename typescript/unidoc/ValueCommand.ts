@@ -36,7 +36,7 @@ export namespace ValueCommand {
    */
   export function* reduce(): UnidocReducer<Value> {
     let base: number | undefined = undefined
-    let modifiers: List<Modifier> = List().asMutable()
+    let modifiers: List<Modifier> = List<Modifier>().asMutable()
 
     yield* UnidocReducer.skipStart()
     yield* UnidocReducer.skipWhitespaces()
